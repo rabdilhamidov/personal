@@ -40,3 +40,4 @@
 /composer.json
 /composer.lock
 /bin
+/app/cache
