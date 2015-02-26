@@ -1,0 +1,22 @@
+<form action="" method="post" {{ form_enctype(form) }} class="feedback" id="feedback" novalidate>
+    {% if isPostData %}
+    <div class="form-report-block {{ isFbkFormValid ? 'success' : 'error' }}">
+        <a href="#" class="close1"></a>
+        <div class="sign"></div>
+        <div class="form-message">
+            <h4>Форма обратной связи: </h4>
+            {% if isFbkFormValid %}
+                Спасибо! Ваше сообщение было отправлено.
+            {% else %}
+                {{ form_errors(form.email) }}
+                {{ form_errors(form.mess) }}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %} 
+
+    {{ form_widget(form.email, { 'attr': {'placeholder': 'Ваш email'} }) }}
+    {{ form_widget(form.mess, { 'attr': {'placeholder': 'Ваше сообщение'} }) }}
+    {{ form_rest(form) }}
+    <input type="submit" class="green" />
+</form>

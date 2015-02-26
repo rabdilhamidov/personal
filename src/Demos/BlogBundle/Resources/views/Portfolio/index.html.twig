@@ -1,0 +1,31 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Портфолио{% endblock %}
+
+{% block bodyclass %}class="portfolio"{% endblock %}
+	
+{% block content %}
+	<section class="chapter">
+		<div class="content">
+			<h2>{{ params.title }}</h2>
+		</div>
+	</section>
+
+	{{ params ? dump(params) : false }}
+	{# {{ test ? dump(test) : false }} #}
+	{# {{ posts ? dump(posts) : false }} #}
+{% endblock %}
+
+{% block popups %}
+<!-- fullscreen picture popup -->
+<div class="fullscreen">
+	<figure class="img-block">
+		{# <img src="" alt=""> #}
+	</figure>
+	<div class="help">
+		Esc или клик мыши закрывает окно.
+	</div>
+	<div class="border"></div>
+	<a href="#" class="sitelink">Перейти на сайт</a>
+</div>
+{% endblock %}

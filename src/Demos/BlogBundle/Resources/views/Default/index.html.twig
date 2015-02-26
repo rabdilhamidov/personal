@@ -1,0 +1,135 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Персональный сайт.{% endblock %}
+
+{% block bodyclass %}class="home"{% endblock %}
+	
+{% block content %}
+	{# {{ test ? dump(test) : false }} #}
+	<section class="main-slider">
+		<div class="content">
+			<h2>Персональный сайт</h2>
+		</div>
+		<ul class="bxslider">
+		    <li>
+		      <div class="slide">
+		        <div class="img-cont">
+		          <img src="{{ asset('images/slide_IMG_0547.jpg') }}" alt="slide_1" />
+		        </div>
+		      </div>
+		    </li>
+		</ul>
+		<div class="controls">
+		    <a href="#" class="prev"></a>
+		    <a href="#" class="next"></a>
+		</div>  
+	</section>
+	{% if posts.web %}
+		<section class="chapter">
+			<div class="content">
+				<h3>Производство сайтов</h3>
+				<div class="slider-1">
+					<ul class="bxslider">
+						{% for post in posts.web %}
+							<li>
+								{# <figure>
+									{% media post.image, 'medium' with {'width': 'auto'} %}
+									{% media post.image, 'big' with {'class': 'fullsrc'} %}
+									{% if post.title %}
+										<figcaption>
+											<h4>{{ post.title }}</h4>
+											<p>{{ post.body }}</p>
+										</figcaption>
+									{% endif %}
+									{% if post.weblink %}<a href="{{ post.weblink }}" target="_blank" class="sitelink"></a>{% endif %}
+								</figure> #}
+
+								{# <figure>
+									<a class="imglink" href="{% path post.image, 'big' %}">
+										{% media post.image, 'medium' with {'width': 'auto'} %}
+									</a>
+									{% if post.title or post.body %}
+										<figcaption>
+											{% if post.title %}<h4>{{ post.title }}</h4>{% endif %}
+											{% if post.body %}<p>{{ post.body }}</p>{% endif %}
+										</figcaption>
+									{% endif %}
+								</figure> #}
+
+								{% include 'DemosBlogBundle:Default:figure.html.twig' with {'post': post} %}
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="controls">
+					    <a href="#" class="prev"></a>
+					    <a href="#" class="next"></a>
+					</div>
+				</div>
+				<div class="chapter-footer">
+					<a href="#" class="more">См. все</a>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+	{% if posts.design %}
+		<section class="chapter dark">
+			<div class="content">
+				<h3>Дизайн</h3>
+				<div class="slider-2">
+					<ul class="bxslider">
+						{% for post in posts.design %}
+							<li>
+								{% include 'DemosBlogBundle:Default:figure.html.twig' with {'post': post} %}
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="controls">
+					    <a href="#" class="prev"></a>
+					    <a href="#" class="next"></a>
+					</div>
+				</div>
+				<div class="chapter-footer">
+					<a href="#" class="more">См. все</a>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+
+	{% if posts.photo %}
+		<section class="chapter">
+			<div class="content">
+				<h3>Фотографии</h3>
+				<div class="slider-3">
+					<ul class="bxslider">
+						{% for post in posts.photo %}
+							<li>
+								{% include 'DemosBlogBundle:Default:figure.html.twig' with {'post': post} %}
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="controls">
+					    <a href="#" class="prev"></a>
+					    <a href="#" class="next"></a>
+					</div>
+				</div>
+				<div class="chapter-footer">
+					<a href="#" class="more">См. все</a>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+{% endblock %}
+
+{% block popups %}
+<!-- fullscreen picture popup -->
+<div class="fullscreen">
+	<figure class="img-block">
+		{# <img src="" alt=""> #}
+	</figure>
+	<div class="help">
+		Esc или клик мыши закрывает окно.
+	</div>
+	<div class="border"></div>
+	<a href="#" class="sitelink">Перейти на сайт</a>
+</div>
+{% endblock %}

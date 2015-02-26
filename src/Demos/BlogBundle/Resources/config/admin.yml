@@ -1,0 +1,59 @@
+# Demos/BlogBundle/Resources/config/admin.yml
+services:
+    sonata.admin.portfolio.post:
+        class: Demos\BlogBundle\Admin\PostAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Portfolio"
+              label: "Post"
+        arguments:
+            - ~
+            - Demos\BlogBundle\Entity\Post
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.portfolio.category:
+        class: Demos\BlogBundle\Admin\CategoryAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Portfolio"
+              label: "Category"
+        arguments:
+            - ~
+            - Demos\BlogBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.blogpost.post:
+        class: Demos\BlogBundle\Admin\BlogPostAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Blog"
+              label: "Blog Posts"
+              label_catalogue: "DemosBlogBundle"
+        arguments:
+            - ~
+            - Demos\BlogBundle\Entity\BlogPost
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
+
+    sonata.admin.blogpost.category:
+        class: Demos\BlogBundle\Admin\BlogCategoryAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Blog"
+              label: "Blog Categories"
+              label_catalogue: "DemosBlogBundle"
+        arguments:
+            - ~
+            - Demos\BlogBundle\Entity\BlogCategory
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]

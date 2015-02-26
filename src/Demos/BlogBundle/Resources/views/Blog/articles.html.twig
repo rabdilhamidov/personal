@@ -1,0 +1,15 @@
+{% for post in posts %}
+	<article>
+		<div class="post-img">
+			{% media post.image, 'medium' with {'width': 'auto'} %}
+		</div>
+		<div class="post-head">
+			<h3><a href="{{ url('demos_blog_blog', {'slug1': slug1, 'page': post.slug}) }}">{{ post.title }}</a></h3>
+			<span class="date">{{ post.updatedDate|date("d-m-Y H:i") }}</span>
+		</div>
+		<div class="post-body">
+			{{ post.body | excerpt(400) }} 
+			<a href="{{ url('demos_blog_blog', {'slug1': slug1, 'page': post.slug}) }}" class="more-2"></a>
+		</div>
+	</article>
+{% endfor %}

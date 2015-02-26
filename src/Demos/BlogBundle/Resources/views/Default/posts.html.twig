@@ -1,0 +1,18 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Персональный сайт.{% endblock %}
+
+
+{% block content %}
+    {% if posts %}
+        {{ dump(posts) }}
+{#         <ul id="posts">
+        {% for post in posts %}
+            <li>
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.body }}</p>
+            </li>
+        {% endfor %}
+    </ul> #}
+    {% endif %}
+{% endblock %}

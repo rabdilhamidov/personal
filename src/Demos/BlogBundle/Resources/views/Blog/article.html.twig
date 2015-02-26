@@ -1,0 +1,17 @@
+{% if post %}
+	<article>
+		<div class="post-img">
+			{% media post.image, 'big' with {'width': 'auto'} %}
+		</div>
+		<div class="post-head">
+			<h3>{{ post.title }}</h3>
+			<span class="date">{{ post.updatedDate|date("d-m-Y H:i") }}</span>
+		</div>
+		<div class="post-body">
+			{{ post.body | raw() }} 
+		</div>
+		<div class="post-footer">
+			<a href="{{ url('demos_blog_blog', {'slug1': params.slug1}) }}" class="back" onclick="history.back();">Назад</a>
+		</div>
+	</article>
+{% endif %}

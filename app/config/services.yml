@@ -1,0 +1,16 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    demos_blog.twig_extension:
+        class: Demos\BlogBundle\Twig\Extension\DemosBlogExtension
+        public: false
+        tags:
+            - { name: twig.extension }
+    app.twig_extension:
+        class: Application\Sonata\AdminBundle\Twig\Extension\ApplicationSonataAdminExtension
+        public: false
+        tags:
+            - { name: twig.extension }

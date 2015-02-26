@@ -1,0 +1,39 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Портфолио{% endblock %}
+
+{% block bodyclass %}class="blog {{params.page is defined ? 'section' : 'detail'}}"{% endblock %}
+	
+{% block content %}
+	<section class="chapter">
+		<div class="content">
+			<aside>
+				<h2 class="blog-caption"><a href="{{ url('demos_blog_blog') }}">{{ params.title }}</a></h2>
+				<div class="search-block">
+				</div>
+				<nav class="left-menu">
+					{{ knp_menu_render('DemosBlogBundle:Builder:leftMenu', {'depth': 1, 'currentAsLink': true}) }}
+				</nav>
+			</aside>
+
+			<section class="articles">
+				{% if params.page is defined %}
+					{% include 'DemosBlogBundle:Blog:articles.html.twig' with {'post': posts, 'slug1': params.slug1} %}
+				{% else %}
+					{% include 'DemosBlogBundle:Blog:article.html.twig' with {'post': posts[0], 'slug1': params.slug1} %}
+				{% endif %}
+			</section>
+
+			<div class="chapter-footer">
+				{% if params.page is defined %}
+					{% include 'RaPaginationBundle:Default:index.html.twig' with {'params': params.pager, 'router': 'demos_blog_blog', 'slug1': params.slug1 } %}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+
+	{# {{ posts ? dump(posts) : false }} #}
+	{# {{ test ? dump(test) : false }} #}
+{% endblock %}
+
+{% block popups %}{% endblock %}

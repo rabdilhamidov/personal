@@ -1,0 +1,39 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Авторизация{% endblock %}
+
+{% block bodyclass %}class="login"{% endblock %}
+
+{% block content %}
+	<div class="content">
+		<div class="login-form">
+			{% if error %}
+			    <div class='form-error-mess'>{{ error.message|trans }}</div>
+			{% endif %}
+
+			<form action="{{ path('login_check') }}" method="post">
+			    <label for="username">{% trans %}Username{% endtrans %}:</label>
+			    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+			    <label for="password">{% trans %}Password{% endtrans %}:</label>
+			    <input type="password" id="password" name="_password" />
+				<fieldset class="form-footer">
+				    <input type="checkbox" id="remember_me" name="_remember_me" checked />
+				    <label for="remember_me">{% trans %}Remember me{% endtrans %}</label><br>
+				    <input type="submit" name="login" value="{% trans %}Login{% endtrans %}" />
+			    </fieldset>	    
+
+			    {#
+			        Если вы хотите контролировать URL, на который перенаправить пользователя:
+			        <input type="hidden" name="_target_path" value="/account" />
+			    #}
+
+			</form>
+			<div class="buttons">
+				<a class="button" href="#">{% trans %}Register{% endtrans %}</a><br>
+				<a class="button" href="#">{% trans %}Password recovery{% endtrans %}</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{#
+
+This file is extend of the Sonata package from \vendor\sonata-project\doctrine-orm-admin-bundle\Resources\views\CRUD\list_orm_many_to_one.html.twig
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'ApplicationSonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    {% if value %}
+        {% if field_description.hasAssociationAdmin and field_description.associationadmin.hasRoute('edit') and field_description.associationadmin.isGranted('EDIT', value) %}
+            <a href="{{ field_description.associationadmin.generateObjectUrl(field_description.options.route.name, value, field_description.options.route.parameters) }}">
+            	{% if value.providerName ==  'sonata.media.provider.image' %}
+            	    {% thumbnail value, 'small' %}
+				{% else %}
+	            	{{ value|render_relation_element(field_description) }}
+            	{% endif %}
+            </a>
+        {% else %}
+            {{ value|render_relation_element(field_description) }}
+        {% endif %}
+    {% endif %}
+{% endblock %}

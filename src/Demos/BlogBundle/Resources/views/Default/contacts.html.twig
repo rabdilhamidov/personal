@@ -1,0 +1,24 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Персональный сайт.{% endblock %}
+
+{% block bodyclass %}class="contacts"{% endblock %}
+	
+{% block content %}
+
+<section class="chapter">
+	<div class="content contacts-block">
+		<h2>Контакты</h2>
+		<div class="left-block">
+			<p>Звоните, пишите. Буду рад обсудить варианты сотрудничества или ответить на интересующие вопросы. </p> 
+			<p>Тел.: +38 067 377 30 77</p>
+			<p>Email: <a href="mailto:rus-abd@ukr.net">rus-abd@ukr.net</a></p>
+			<p>Skype: Abdilkhamidov</p>
+		</div>
+		<div class="right-block">
+			{{ render(controller("DemosBlogBundle:Default:feedback", { 'request': app.request } )) }}
+		</div>
+	</div>
+</section>
+
+{% endblock %}

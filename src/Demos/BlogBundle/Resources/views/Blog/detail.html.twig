@@ -1,0 +1,45 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Портфолио{% endblock %}
+
+{% block bodyclass %}class="blog detail"{% endblock %}
+	
+{% block content %}
+	<section class="chapter">
+		<div class="content">
+			<aside>
+				<h2 class="blog-caption"><a href="{{ url('demos_blog_blog', {'slug1': 'all'}) }}">Блог</a></h2>
+				<div class="search-block">
+				</div>
+				<nav class="left-menu">
+					{{ knp_menu_render('DemosBlogBundle:Builder:leftMenu', {'depth': 1, 'currentAsLink': true}) }}
+				</nav>
+			</aside>
+			<section class="articles">
+				{% if post %}
+					<article>
+						<div class="post-img">
+							{% media post.image, 'big' with {'width': 'auto'} %}
+						</div>
+						<div class="post-head">
+							<h3>{{ post.title }}</h3>
+							<span class="date">{{ post.updatedDate|date("d-m-Y H:i") }}</span>
+						</div>
+						<div class="post-body">
+							{{ post.body | raw() }} 
+						</div>
+					</article>
+				{% endif %}
+			</section>
+
+			<div class="chapter-footer">
+				<a href="{{ url('demos_blog_blog', {'slug1': slug1}) }}">Назад</a>
+			</div>
+		</div>
+	</section>
+
+	{# {{ posts ? dump(posts) : false }} #}
+	{# {{ test ? dump(test) : false }} #}
+{% endblock %}
+
+{% block popups %}{% endblock %}

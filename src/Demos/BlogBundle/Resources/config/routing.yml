@@ -1,0 +1,70 @@
+
+demos_blog_homepage:
+    pattern:     /
+    defaults: { _controller: DemosBlogBundle:Default:index }
+
+# demos_blog_portfolio:
+#     pattern:     /portfolio/{slug}/{page}
+#     defaults: { _controller: DemosBlogBundle:Portfolio:index, page: 1 }
+#     requirements:
+#             page:  \d+
+
+demos_blog_portfolio:
+    pattern:     /portfolio
+    defaults: { _controller: DemosBlogBundle:Portfolio:index }
+    requirements:
+            page:  \d+
+
+demos_blog_section:
+    pattern:     /portfolio/{slug1}/{slug2}/{page}
+    defaults: { _controller: DemosBlogBundle:Portfolio:section, slug1: '', slug2: '', page: 1 }
+    requirements:
+            page:  \d+
+
+demos_blog_blog:
+    pattern: /blog/{slug1}/{page}
+    defaults: { _controller: DemosBlogBundle:Blog:index, slug1: 'all', page: 1 }
+
+
+
+demos_blog_about:
+    pattern:     /about_me
+    defaults: { _controller: DemosBlogBundle:Default:aboutme }
+
+demos_blog_contacts:
+    pattern:     /contacts
+    defaults: { _controller: DemosBlogBundle:Default:contacts }
+
+demos_blog_login:
+    pattern: /login
+    defaults: { _controller: DemosBlogBundle:Security:login }
+
+demos_blog_logout:
+    pattern: /logout/{backurl}
+    defaults: { _controller: DemosBlogBundle:Security:logout }
+
+demos_blog_logout_target:
+    pattern: /{backurl}
+    defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
+
+login_check:
+    pattern: /login_check 
+
+
+
+# demos_blog_create_post:
+#     path:     /createpost/
+#     defaults: { _controller: DemosBlogBundle:Default:createPost }
+
+# demos_blog_show_post:
+#     path:     /post/{id}
+#     defaults: { _controller: DemosBlogBundle:Default:showPost }
+
+# demos_blog_show_posts:
+#     path:     /posts/
+#     defaults: { _controller: DemosBlogBundle:Default:showPosts }
+
+demos_blog_mail:
+    path:     /testmail/
+    defaults: { _controller: DemosBlogBundle:Default:testMail }
+

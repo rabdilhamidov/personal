@@ -1,0 +1,11 @@
+<figure>
+	<a class="imglink" href="{% path post.image, 'big' %}">
+		{% media post.image, 'big' with {'width': 'auto'} %}
+	</a>
+	{% if post.title or post.body %}
+		<figcaption>
+			{% if post.title %}<h4>{{ post.title }}</h4>{% endif %}
+			{% if post.body %}<p>{{ post.body|raw }}</p>{% endif %}
+		</figcaption>
+	{% endif %}
+</figure>

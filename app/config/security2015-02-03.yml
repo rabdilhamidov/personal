@@ -1,0 +1,44 @@
+# app/config/security.yml
+security:
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            form_login: ~
+            logout: ~
+            remember_me:
+                key:      "%secret%"
+                lifetime: 31536000 # 365 days in seconds
+                path:     /
+                domain:   ~ # Defaults to the current domain from $_SERVER    
+
+    access_control:
+        - { path: ^/admin, roles: ROLE_ADMIN }
+
+    providers:
+        chain_provider:
+            chain:
+                providers: [in_memory, user_db]
+        in_memory:
+            memory:
+                users:
+                    user:  { password: 7c4a8d09ca3762af61e59520943dc26494f8941b, roles: [ 'ROLE_USER' ] }
+                    admin: { password: 3b6fc7ed2f766896ac0e548b962ad9c85fecf082, roles: [ 'ROLE_ADMIN' ] }
+        user_db:
+            entity: { class: Demos\BlogBundle\Entity\User, property: username }
+
+    encoders:
+        Symfony\Component\Security\Core\User\User:
+            algorithm:   sha1
+            iterations: 1
+            encode_as_base64: false  
+
+        Demos\BlogBundle\Entity\User: 
+            algorithm:   sha1
+            iterations: 1
+            encode_as_base64: false  
+
+    # http://symfony.com/doc/current/book/security.html#hierarchical-roles
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]

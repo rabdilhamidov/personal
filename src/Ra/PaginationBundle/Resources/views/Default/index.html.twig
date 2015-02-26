@@ -1,0 +1,36 @@
+{% if params.length > 1 %}
+    <div class="pager"> 
+    	{% if params.page > 1 %}
+    		{% if slug1 is defined and slug2 is defined %}
+				<a href="{{ path(router, { 'slug1': slug1, 'slug2': slug2, 'page': params.page-1}) }}" class="pre"></a>
+			{% elseif slug1 is defined %}
+				<a href="{{ path(router, { 'slug1': slug1, 'page': params.page-1}) }}" class="pre"></a>
+			{% else %}
+				<a href="{{ path(router, { 'page': params.page-1}) }}" class="pre"></a>
+			{% endif %}
+		{% else %}
+			<span class="pre disable"></span>
+		{% endif %} 
+    	{% for i in params.first..params.last %}
+    		{% if slug1 is defined and slug2 is defined %}
+				<a href="{{ path(router, { 'slug1': slug1, 'slug2': slug2, 'page': i}) }}" class="{{ i == params.current ? 'current' : 'page' }}">{{ i }}</a>
+			{% elseif slug1 is defined %}
+				<a href="{{ path(router, { 'slug1': slug1, 'page': i}) }}" class="{{ i == params.current ? 'current' : 'page' }}">{{ i }}</a>
+			{% else %}
+				<a href="{{ path(router, { 'page': i}) }}" class="{{ i == params.current ? 'current' : 'page' }}">{{ i }}</a>
+			{% endif %}
+		{% endfor %}
+		{% if params.page < params.postsPagesLength %}
+			{% if slug1 is defined and slug2 is defined %}
+				<a href="{{ path(router, { 'slug1': slug1, 'slug2': slug2, 'page': params.page+1}) }}" class="next"></a>
+			{% elseif slug1 is defined %}
+				<a href="{{ path(router, { 'slug1': slug1, 'page': params.page+1}) }}" class="next"></a>
+			{% else %}
+				<a href="{{ path(router, { 'page': params.page+1}) }}" class="next"></a>
+			{% endif %}
+		{% else %}
+			<span class="next disable"></span>
+		{% endif %}
+    </div>
+{% endif %}
+{# {{ dump(params) }} #}

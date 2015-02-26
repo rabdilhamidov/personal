@@ -1,0 +1,13 @@
+Demos\BlogBundle\Entity\Feedback:
+    properties:
+        email:
+            - NotBlank: 
+                message: Укажите контактный email
+            - Email: 
+                message: Указанный email не корректен
+        mess:
+            - NotBlank:
+                message: Напишите сообщение
+            - Length:
+                min: 3
+                minMessage: Cообщение слишком короткое

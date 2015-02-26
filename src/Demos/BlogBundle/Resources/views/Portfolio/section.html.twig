@@ -1,0 +1,60 @@
+{% extends '::layout.front.html.twig' %}
+
+{% block title %}Абдилхамидов Руслан. Портфолио{% endblock %}
+
+{% block bodyclass %}class="portfolio"{% endblock %}
+	
+{% block content %}
+	<section class="chapter">
+		<div class="content">
+			<h2>{{ params.title }}</h2>
+			{% if params.category.childs %}
+			<nav class="sub-category">
+				<ul>
+				{% for category in params.category.childs %}
+					<li>
+						<a href="{{ path('demos_blog_section', { 'slug1': params.slug1, 'slug2': category.slug}) }}" 
+						class="{{ category.slug }} {{ params.slug2 == category.slug  ? 'current' : '' }}">
+							{{ category.title}}
+						</a>
+					</li>
+				{% endfor %}
+				</ul>
+			</nav>
+			{% endif %}
+			{% if posts %}
+				<div>
+					<ul class="figures">
+						{% for post in posts %}
+							<li>
+								{% include 'DemosBlogBundle:Default:figure.html.twig' with {'post': post} %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+
+				<div class="chapter-footer">
+					{% include 'RaPaginationBundle:Default:index.html.twig' with {'params': params.pager, 'router': 'demos_blog_section', 'slug1': params.slug1, 'slug2': params.slug2} %}
+				</div>
+			{% endif %}
+		</div>
+	</section>
+
+	{# {{ params ? dump(params) : false }} #}
+	{# {{ test ? dump(test) : false }} #}
+	{# {{ posts ? dump(posts) : false }} #}
+{% endblock %}
+
+{% block popups %}
+<!-- fullscreen picture popup -->
+<div class="fullscreen">
+	<figure class="img-block">
+		{# <img src="" alt=""> #}
+	</figure>
+	<div class="help">
+		Esc или клик мыши закрывает окно.
+	</div>
+	<div class="border"></div>
+	<a href="#" class="sitelink">Перейти на сайт</a>
+</div>
+{% endblock %}

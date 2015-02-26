@@ -1,0 +1,42 @@
+/**
+ * Sonata Admin my reassigning
+ *
+ *
+ * ----------------------------------------------------------------------------
+ */
+ .sonata-bc .header .logo{
+ 	text-align: left;
+ }
+.sonata-bc .header .logo span{
+	font-size: 14px;
+	line-height: 17px;
+	text-align: left;
+}
+.sonata-bc .header .logo img{
+	width: 40px;
+	height: auto;
+	margin-right: 10px;
+}
+
+.sonata-ba-filter .box-header{
+	padding-bottom: 0;
+
+}
+.sonata-filter-form .form-group{
+  width: 200px;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 10px;
+}
+.sonata-filter-form .btn{
+  margin-top: 25px;
+}
+.sonata-filter-form .form-group:last-of-type{
+  margin-right: 30px;
+}
+
+.select2-container .select2-choice{
+	height: 34px;
+	padding: 3px 0px 0px 8px;
+}
