@@ -433,7 +433,7 @@ header {
   margin-top: 0;
   padding: 0;
   position: relative;
-  height: 760px;
+  height: 770px;
   overflow: hidden;
   width: 100%;
   border-bottom: 4px solid #2b4117; }
@@ -446,17 +446,23 @@ header {
   .main-slider .slide {
     height: 100%; }
     .main-slider .slide .img-cont {
-      height: 760px;
+      height: 770px;
       overflow: hidden;
       width: 100%;
-      background-color: #a5a5a5; }
+      background-color: #2b4117;
+      position: relative; }
       .main-slider .slide .img-cont img {
-        width: 100%; }
+        width: 100%;
+        height: auto;
+        min-height: 770px;
+        min-width: 1155px;
+        position: absolute;
+        top: 0; }
 
 .controls {
   position: absolute;
   top: 50%;
-  margin-top: -30px;
+  margin-top: -50px;
   width: 100%;
   background-color: #cee; }
   .controls a {
@@ -527,7 +533,7 @@ section.chapter {
       display: none;
       width: 100%;
       height: 70px;
-      background-color: rgba(140, 180, 75, 0.7);
+      background-color: rgba(140, 180, 75, 0.8);
       padding: 10px;
       border-bottom: 4px solid #5b7126;
       position: absolute;
@@ -541,7 +547,7 @@ section.chapter {
         position: absolute;
         top: -16px;
         left: 10px;
-        opacity: 0.7; }
+        opacity: 0.8; }
       section.chapter figure figcaption h4, section.chapter figure figcaption p {
         overflow: hidden;
         text-overflow: ellipsis;

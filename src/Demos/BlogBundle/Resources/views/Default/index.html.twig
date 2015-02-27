@@ -6,18 +6,22 @@
 	
 {% block content %}
 	{# {{ test ? dump(test) : false }} #}
+	{# {{ dump(test) }} #}
+		
 	<section class="main-slider">
 		<div class="content">
 			<h2>Персональный сайт</h2>
 		</div>
 		<ul class="bxslider">
-		    <li>
-		      <div class="slide">
-		        <div class="img-cont">
-		          <img src="{{ asset('images/slide_IMG_0547.jpg') }}" alt="slide_1" />
-		        </div>
-		      </div>
-		    </li>
+			{% for mainBannerImg in mainBannerImgs %}
+			    <li>
+			      <div class="slide">
+			        <div class="img-cont">
+			          {% thumbnail mainBannerImg, 'mainbanner' %}
+			        </div>
+			      </div>
+			    </li>
+			{% endfor %}
 		</ul>
 		<div class="controls">
 		    <a href="#" class="prev"></a>
@@ -32,30 +36,6 @@
 					<ul class="bxslider">
 						{% for post in posts.web %}
 							<li>
-								{# <figure>
-									{% media post.image, 'medium' with {'width': 'auto'} %}
-									{% media post.image, 'big' with {'class': 'fullsrc'} %}
-									{% if post.title %}
-										<figcaption>
-											<h4>{{ post.title }}</h4>
-											<p>{{ post.body }}</p>
-										</figcaption>
-									{% endif %}
-									{% if post.weblink %}<a href="{{ post.weblink }}" target="_blank" class="sitelink"></a>{% endif %}
-								</figure> #}
-
-								{# <figure>
-									<a class="imglink" href="{% path post.image, 'big' %}">
-										{% media post.image, 'medium' with {'width': 'auto'} %}
-									</a>
-									{% if post.title or post.body %}
-										<figcaption>
-											{% if post.title %}<h4>{{ post.title }}</h4>{% endif %}
-											{% if post.body %}<p>{{ post.body }}</p>{% endif %}
-										</figcaption>
-									{% endif %}
-								</figure> #}
-
 								{% include 'DemosBlogBundle:Default:figure.html.twig' with {'post': post} %}
 							</li>
 						{% endfor %}
@@ -66,7 +46,7 @@
 					</div>
 				</div>
 				<div class="chapter-footer">
-					<a href="#" class="more">См. все</a>
+					<a href="{{url('demos_blog_section', {'slug1': 'web'}) }}" class="more">См. все</a>
 				</div>
 			</div>
 		</section>
@@ -89,7 +69,7 @@
 					</div>
 				</div>
 				<div class="chapter-footer">
-					<a href="#" class="more">См. все</a>
+					<a href="{{url('demos_blog_section', {'slug1': 'design'}) }}" class="more">См. все</a>
 				</div>
 			</div>
 		</section>
@@ -113,7 +93,7 @@
 					</div>
 				</div>
 				<div class="chapter-footer">
-					<a href="#" class="more">См. все</a>
+					<a href="{{url('demos_blog_section', {'slug1': 'photo'}) }}" class="more">См. все</a>
 				</div>
 			</div>
 		</section>

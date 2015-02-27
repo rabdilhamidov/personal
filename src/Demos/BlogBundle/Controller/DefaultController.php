@@ -10,6 +10,10 @@ use Demos\BlogBundle\Entity\Category;
 use Demos\BlogBundle\Form\FeedbackType;
 use Demos\BlogBundle\Entity\Feedback;
 use Symfony\Component\Security\Core\SecurityContext;
+// use Sonata\MediaBundle\Entity\MediaManager;
+use Application\Sonata\MediaBundle\Entity\Media;
+use Application\Sonata\MediaBundle\Entity\Gallery;
+use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
 
 class DefaultController extends Controller
 {
@@ -35,13 +39,32 @@ class DefaultController extends Controller
     	foreach ($arPhotos as $photo) {
     		$arPhotosId[] = $photo->getId();
     	}
-    	$posts['photo'] = $repoPost->findByCategory(array('catID' => $arPhotosId, 'quantity' => 9));
+    	$posts['photo'] = $repoPost->findByCategory(array('catID' => $arPhotosId, 'quantity' => 9, 'orderBy' => 'sort'));
     	unset($arPhotos);
+
+    	$repoMedia = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:Media');
+    	$media = $repoMedia->findOneBy(array('id' => 14));
+
+    	$repoGallery = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:Gallery');
+    	$galleryMainBanner = $repoGallery->findOneBy(array('name' => 'main_banner'));
+
+    	$repoGalleryHasMedia = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:GalleryHasMedia');
+    	$galleryHasMedias = $repoGalleryHasMedia->findBy(
+    		array('gallery' => array('id'=>$galleryMainBanner->getId())),
+    		array('position' => 'ASC')
+    	);
+
+    	$mainBannerImgs = array();
+    	foreach ($galleryHasMedias as $galleryHasMedia) {
+    		$mainBannerImgs[] = $galleryHasMedia->getMedia();
+    	}
+
 
         return $this->render('DemosBlogBundle:Default:index.html.twig', 
         	array(
         		'posts' => $posts, 
-        		'test' => false,
+        		'mainBannerImgs' => $mainBannerImgs,
+        		'test' => $galleryHasMedias,
     		)
     	);
     }

@@ -1,6 +1,10 @@
 <figure>
 	<a class="imglink" href="{% path post.image, 'big' %}">
-		{% media post.image, 'big' with {'width': 'auto'} %}
+		{% if post.image.height > post.image.width %}
+			{% media post.image, 'big' with {'width': 'auto', 'style': 'width: 100%; height: auto'} %}
+		{% else %}
+			{% media post.image, 'big' with {'width': 'auto'} %}
+		{% endif %}
 	</a>
 	{% if post.title or post.body %}
 		<figcaption>

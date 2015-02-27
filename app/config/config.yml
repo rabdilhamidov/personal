@@ -139,6 +139,7 @@ sonata_media:
                 small: { width: 100 , quality: 80}
                 medium:   { width: 640 , quality: 80}
                 big:   { width: 1600 , quality: 80}
+                mainbanner:   { width: 1900 , quality: 80}
 
     cdn:
         server:

@@ -5,7 +5,11 @@ $(function () {
     // Большой слайдер
     var slider = $('.main-slider ul').bxSlider({
         pager: false,
-        controls: false
+        controls: false,
+        onSliderLoad: function (currentIndex) {
+          // Центровка слайдов
+          center_slide();
+        }
       });
     // 1 слайдер : пр-во сайтов
     var slider1 = $('.slider-1 ul').bxSlider({
@@ -98,10 +102,14 @@ $(function () {
     }
   });
   ;
-  // рассчет полноэкранного изображения
   $(window).resize(function () {
+    // рассчет полноэкранного изображения
     if ($('.fullscreen').is(':visible')) {
       fullscreenImg($('.fullscreen .img-block img'));
+    }
+    // слайдов главного слайдера
+    if ($('.main-slider').length) {
+      center_slide();
     }
   });
 });
@@ -143,6 +151,10 @@ function fullscreenImg(img_el, mode) {
     'margin-left': -imw / 2,
     'margin-top': -imh / 2
   });
+}
+function center_slide() {
+  var slide_img = $('.main-slider .slide').find('img');
+  $(slide_img).css({ 'top': -0.5 * (slide_img.height() - $('.main-slider .slide').height()) });
 }
 // работа с формой обратной связи в футере
 function feedback_form_handler() {
