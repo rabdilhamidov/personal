@@ -6,7 +6,7 @@ if(empty($_POST['imgSrc'])){
 }
 ?>
 <figure class="img-block">
-	<img src="http://<?php echo $_SERVER['SERVER_NAME'].$_POST['imgSrc'] ?>" alt="">
+	<img src="http://<?php echo $_SERVER['HTTP_HOST'].$_POST['imgSrc'] ?>" alt="">
 </figure>
 <div class="help">
 	Esc или клик мыши закрывает окно.
