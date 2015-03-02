@@ -62,6 +62,11 @@ protected $updated_date;
 protected $category;
 
 /**
+* @ORM\Column(name="category_slug", type="string", length=255, nullable=true)
+*/
+protected $category_slug;
+
+/**
  * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade="all")
  * @ORM\JoinColumn(name="image_id", referencedColumnName="id")
  */
@@ -322,5 +327,39 @@ protected $image;
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set category_slug
+     *
+     * @param string $categorySlug
+     * @return BlogPost
+     */
+    public function setCategorySlug($categorySlug)
+    {
+        
+        $this->category_slug = $categorySlug;
+
+        return $this;
+    }
+
+    /**
+     * Get category_slug
+     *
+     * @return string 
+     */
+    public function getCategorySlug()
+    {
+        return $this->category_slug;
+    }
+
+     /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function addCategorySlug()
+    {
+        $this->setCategorySlug($this->category->getSlug());
     }
 }

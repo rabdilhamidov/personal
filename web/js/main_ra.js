@@ -38,6 +38,16 @@ $(function () {
         slideWidth: 320,
         slideMargin: 30
       });
+    //-- 
+    // 4 слайдер : Блог
+    var slider_blog = $('.slider-blog ul').bxSlider({
+        pager: false,
+        controls: false,
+        minSlides: 3,
+        maxSlides: 3,
+        slideWidth: 320,
+        slideMargin: 30
+      });
     //--
     /*
 		*/
@@ -58,6 +68,10 @@ $(function () {
       event.preventDefault();
       $(this).hasClass('prev') && slider3.goToPrevSlide();
       $(this).hasClass('next') && slider3.goToNextSlide();
+    }).on('click', '.slider-blog .controls a', function (event) {
+      event.preventDefault();
+      $(this).hasClass('prev') && slider_blog.goToPrevSlide();
+      $(this).hasClass('next') && slider_blog.goToNextSlide();
     });
   }
   // HOMEPAGE

@@ -35,7 +35,7 @@ class DefaultController extends Controller
     	// вэб
     	$posts = array();
     	$repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');
-    	$posts['web'] = $repoPost->findByCategory(array('catID'=>72, 'quantity' => 9, 'orderBy' => 'sort'));
+    	$posts['web'] = $repoPost->query_posts(array('catID'=>72, 'quantity' => 9, 'orderBy' => 'sort'));
 
     	// дизайн
     	$repoCat = $this->getDoctrine()->getRepository('DemosBlogBundle:Category');
@@ -45,7 +45,7 @@ class DefaultController extends Controller
     	foreach ($arCat as $cat) {
     		$arCatId[] = $cat->getId();
     	}
-    	$posts['design'] = $repoPost->findByCategory(array('catID' => $arCatId, 'quantity' => 9, 'orderBy' => 'sort'));
+    	$posts['design'] = $repoPost->query_posts(array('catID' => $arCatId, 'quantity' => 9, 'orderBy' => 'sort'));
 
     	// Фото
     	$photos = $repoCat->findOneBySlug('photo');
@@ -54,7 +54,12 @@ class DefaultController extends Controller
     	foreach ($arPhotos as $photo) {
     		$arPhotosId[] = $photo->getId();
     	}
-    	$posts['photo'] = $repoPost->findByCategory(array('catID' => $arPhotosId, 'quantity' => 9, 'orderBy' => 'sort'));
+    	$posts['photo'] = $repoPost->query_posts(array('catID' => $arPhotosId, 'quantity' => 9, 'orderBy' => 'sort'));
+
+    	// Блог
+    	$repoBlogPost = $this->getDoctrine()->getRepository('DemosBlogBundle:BlogPost');
+
+    	$posts['blog'] = $repoBlogPost->query_posts(array('quantity' => 9, 'orderBy' => 'sort'));
 
         return $this->render('DemosBlogBundle:Default:index.html.twig', 
         	array(

@@ -43,12 +43,12 @@ class PortfolioController extends Controller
         
         // посты
         $repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');
-        $postsLength = $repoPost->countPostsInCategory(array('catID'=>$category->getId()));
+        $postsLength = $repoPost->count_posts(array('catID'=>$category->getId()));
 
         $catID = $category->getId();
         if(!$arParams['slug2'] && !$postsLength && $arParams['category']['childs']) {
             $catID = $arParams['category']['childs'][0] -> getId();
-            $postsLength = $repoPost->countPostsInCategory(array('catID'=>$catID));
+            $postsLength = $repoPost->count_posts(array('catID'=>$catID));
             $arParams['slug2'] = $arParams['category']['childs'][0] -> getSlug();
         }
 
@@ -56,7 +56,7 @@ class PortfolioController extends Controller
             $pager = new CPagination($postsLength);
             $arParams['pager'] = $pager->getPager($page);
 
-            $posts = $repoPost->findByCategory(
+            $posts = $repoPost->query_posts(
                 array(
                     'catID' => $catID, 
                     'quantity' => $arParams['pager']['postsPerPage'], 

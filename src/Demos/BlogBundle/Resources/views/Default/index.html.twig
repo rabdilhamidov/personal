@@ -6,7 +6,7 @@
 	
 {% block content %}
 	{# {{ test ? dump(test) : false }} #}
-	{# {{ dump(test) }} #}
+	{# {{ dump(posts) }} #}
 		
 	<section class="main-slider">
 		<div class="content">
@@ -98,6 +98,33 @@
 			</div>
 		</section>
 	{% endif %}
+
+	{% if posts.blog %}
+		<section class="chapter blog">
+			<div class="content">
+				<h3>Блог</h3>
+				<div class="slider-blog">
+					<ul class="bxslider">
+						{% for post in posts.blog %}
+							<li>
+								{% include 'DemosBlogBundle:Default:main_article.html.twig' with {'post': post} %}
+							</li>
+						{% endfor %}
+					</ul>
+					<div class="slider-footer">
+						<div class="controls">
+						    <a href="#" class="prev"></a>
+						    <a href="#" class="next"></a>
+						</div>
+					</div>
+				</div>
+				<div class="chapter-footer">
+					<a href="{{ url('demos_blog_blog') }}" class="more">См. все</a>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+
 {% endblock %}
 
 {% block popups %}

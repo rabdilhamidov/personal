@@ -1,0 +1,19 @@
+<article>
+	<figure>
+		{% if post.image %}
+			{% if post.image.height > post.image.width %}
+				{% media post.image, 'medium' with {'style': 'width: 100%; height: auto'} %}
+			{% else %}
+				{% media post.image, 'medium' with {'style': 'width: auto; height: 100%'} %}
+			{% endif %}
+		{% endif %}
+	</figure>
+	<div class="post-head">
+		<h4><a href="{{ url('demos_blog_blog', {'slug1': post.categorySlug, 'page': post.slug}) }}">{{ post.title }}</a></h4>
+		<span class="date">{{ post.updatedDate|date("d-m-Y H:i") }}</span>
+	</div>
+	<div class="post-body">
+		{{ post.body | excerpt(200) }}
+		<a href="{{ url('demos_blog_blog', {'slug1': post.categorySlug, 'page': post.slug}) }}" class="more-2"></a>
+	</div>
+</article>
