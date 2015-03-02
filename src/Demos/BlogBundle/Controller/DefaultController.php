@@ -10,7 +10,6 @@ use Demos\BlogBundle\Entity\Category;
 use Demos\BlogBundle\Form\FeedbackType;
 use Demos\BlogBundle\Entity\Feedback;
 use Symfony\Component\Security\Core\SecurityContext;
-// use Sonata\MediaBundle\Entity\MediaManager;
 use Application\Sonata\MediaBundle\Entity\Media;
 use Application\Sonata\MediaBundle\Entity\Gallery;
 use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
@@ -19,10 +18,26 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+
+    	// главный баннер
+    	$repoGallery = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:Gallery');
+    	$galleryMainBanner = $repoGallery->findOneBy(array('name' => 'main_banner'));
+    	$repoGalleryHasMedia = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:GalleryHasMedia');
+    	$galleryHasMedias = $repoGalleryHasMedia->findBy(
+    		array('gallery' => array('id'=>$galleryMainBanner->getId())),
+    		array('position' => 'ASC')
+    	);
+    	$mainBannerImgs = array();
+    	foreach ($galleryHasMedias as $galleryHasMedia) {
+    		$mainBannerImgs[] = $galleryHasMedia->getMedia();
+    	}
+
+    	// вэб
     	$posts = array();
     	$repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');
     	$posts['web'] = $repoPost->findByCategory(array('catID'=>72, 'quantity' => 9, 'orderBy' => 'sort'));
 
+    	// дизайн
     	$repoCat = $this->getDoctrine()->getRepository('DemosBlogBundle:Category');
     	$design = $repoCat->findOneBySlug('design');
     	$arCat = $repoCat->getChildren($design, false, 'sort', 'asc');
@@ -31,8 +46,8 @@ class DefaultController extends Controller
     		$arCatId[] = $cat->getId();
     	}
     	$posts['design'] = $repoPost->findByCategory(array('catID' => $arCatId, 'quantity' => 9, 'orderBy' => 'sort'));
-    	unset($arCat);
 
+    	// Фото
     	$photos = $repoCat->findOneBySlug('photo');
     	$arPhotos = $repoCat->getChildren($photos, false, 'sort', 'asc');
     	$arPhotosId = array();
@@ -40,31 +55,11 @@ class DefaultController extends Controller
     		$arPhotosId[] = $photo->getId();
     	}
     	$posts['photo'] = $repoPost->findByCategory(array('catID' => $arPhotosId, 'quantity' => 9, 'orderBy' => 'sort'));
-    	unset($arPhotos);
-
-    	$repoMedia = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:Media');
-    	$media = $repoMedia->findOneBy(array('id' => 14));
-
-    	$repoGallery = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:Gallery');
-    	$galleryMainBanner = $repoGallery->findOneBy(array('name' => 'main_banner'));
-
-    	$repoGalleryHasMedia = $this->getDoctrine()->getRepository('ApplicationSonataMediaBundle:GalleryHasMedia');
-    	$galleryHasMedias = $repoGalleryHasMedia->findBy(
-    		array('gallery' => array('id'=>$galleryMainBanner->getId())),
-    		array('position' => 'ASC')
-    	);
-
-    	$mainBannerImgs = array();
-    	foreach ($galleryHasMedias as $galleryHasMedia) {
-    		$mainBannerImgs[] = $galleryHasMedia->getMedia();
-    	}
-
 
         return $this->render('DemosBlogBundle:Default:index.html.twig', 
         	array(
         		'posts' => $posts, 
         		'mainBannerImgs' => $mainBannerImgs,
-        		'test' => $galleryHasMedias,
     		)
     	);
     }
