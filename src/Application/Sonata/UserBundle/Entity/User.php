@@ -29,11 +29,6 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Demos\BlogBundle\Entity\Post", mappedBy="fos_user")
-     */
-    public $post;
-
-    /**
      * Get id
      *
      * @return integer $id
@@ -41,38 +36,5 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Add post
-     *
-     * @param \Demos\BlogBundle\Entity\Post $post
-     * @return User
-     */
-    public function addPost(\Demos\BlogBundle\Entity\Post $post)
-    {
-        $this->post[] = $post;
-
-        return $this;
-    }
-
-    /**
-     * Remove post
-     *
-     * @param \Demos\BlogBundle\Entity\Post $post
-     */
-    public function removePost(\Demos\BlogBundle\Entity\Post $post)
-    {
-        $this->post->removeElement($post);
-    }
-
-    /**
-     * Get post
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getPost()
-    {
-        return $this->post;
     }
 }
