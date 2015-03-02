@@ -161,7 +161,9 @@ function feedback_form_handler() {
   $(document).ready(function () {
     if ($('form#feedback .form-report-block').length) {
       var report_block = $('form#feedback .form-report-block');
-      $('html, body').scrollTop($('footer').position().top + 320);
+      if ($('.footer').find('form#feedback').length) {
+        $('html, body').scrollTop($('footer').position().top + 320);
+      }
       $(report_block).slideDown(300);
     }
   }).on('click', 'form#feedback .form-report-block a.close1', function (event) {
