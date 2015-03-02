@@ -123,7 +123,7 @@ function fullscreenImg(img_el, mode) {
   var imh = $(img_el).height();
   // console.log('imw = '+imw+'; imh = '+imh);
   var imk = imw / imh;
-  var borderw = 16;
+  var borderw = 8;
   // толщина контура	
   if (mode == 1) {
     // заполнение окна
@@ -149,7 +149,7 @@ function fullscreenImg(img_el, mode) {
   // console.log('ww='+ww+'; wh='+wh+'; imw='+imw+'; imh='+imh);
   $('.fullscreen .img-block').css({
     'margin-left': -imw / 2,
-    'margin-top': -imh / 2
+    'margin-top': -imh / 2 - borderw
   });
 }
 function center_slide() {
