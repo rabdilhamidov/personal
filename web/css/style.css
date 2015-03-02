@@ -709,7 +709,6 @@ footer nav.footer-nav {
     footer nav.footer-nav > ul li > ul.menu_level_1 {
       display: inline-block;
       vertical-align: top;
-      width: 460px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis; }
