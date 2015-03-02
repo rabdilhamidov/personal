@@ -21,7 +21,7 @@ class DefaultController extends Controller
     {
     	$posts = array();
     	$repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');
-    	$posts['web'] = $repoPost->findByCategory(array('catID'=>57, 'quantity' => 9, 'orderBy' => 'sort'));
+    	$posts['web'] = $repoPost->findByCategory(array('catID'=>72, 'quantity' => 9, 'orderBy' => 'sort'));
 
     	$repoCat = $this->getDoctrine()->getRepository('DemosBlogBundle:Category');
     	$design = $repoCat->findOneBySlug('design');
