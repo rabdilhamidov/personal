@@ -746,6 +746,7 @@ header nav.main-navigation {
           header nav.main-navigation .menu-block > ul li > ul.menu_level_1 > li span {
             color: #f5f5f5; }
   header nav.main-navigation div.login {
+    width: 100%;
     text-align: right;
     margin-top: -9px;
     float: right; }
