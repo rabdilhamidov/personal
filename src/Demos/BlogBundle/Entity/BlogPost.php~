@@ -24,6 +24,11 @@ protected $id;
 protected $title;
 
 /**
+* @ORM\Column(name="titleEn", type="string", length=255, nullable=true)
+*/
+protected $titleEn;
+
+/**
 * @ORM\Column(name="sort", type="integer", nullable=true)
 */
 protected $sort;
@@ -44,6 +49,11 @@ public $user;
 * @ORM\Column(type="text", nullable=true)
 */
 protected $body;
+
+/**
+* @ORM\Column(name="bodyEn", type="text", nullable=true)
+*/
+protected $bodyEn;
 
 /**
 * @ORM\Column(type="datetime")
@@ -338,10 +348,6 @@ protected $image;
     public function setCategorySlug($categorySlug)
     {
         
-        if ($categorySlug() == null) {
-            $categorySlug = $this->getCategory()->getSlug();
-        } 
-
         $this->category_slug = $categorySlug;
 
         return $this;
@@ -355,6 +361,16 @@ protected $image;
     public function getCategorySlug()
     {
         return $this->category_slug;
+    }
+
+     /**
+     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
+     */
+    public function addCategorySlug()
+    {
+        $this->setCategorySlug($this->category->getSlug());
     }
 
 }

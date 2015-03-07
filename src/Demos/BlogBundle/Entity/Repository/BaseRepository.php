@@ -4,6 +4,7 @@ namespace Demos\BlogBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
+
 /**
  * PostRepository
  *
@@ -12,10 +13,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class BaseRepository extends EntityRepository
 {
-	public function query_posts($arParams){
+ 	public function query_posts($arParams){
 		$arParams['catID'] = isset($arParams['catID']) ? $arParams['catID'] : NULL;
 		$arParams['quantity'] = isset($arParams['quantity']) ? $arParams['quantity'] : NULL;
 		$arParams['offset'] = isset($arParams['offset']) ? $arParams['offset'] : 0;
+		$arParams['locale'] = isset($arParams['locale']) ? $arParams['locale'] : NULL;
 
 		if(isset($arParams['orderBy'])){
 			$arParams['orderBy2'] = isset($arParams['orderBy2']) ? $arParams['orderBy2'] : 'updated_date';
@@ -45,6 +47,7 @@ class BaseRepository extends EntityRepository
 		// echo '$qb='.$qb;
 
 		$result = $query->getResult();
+
 		return $result;
 	}
 

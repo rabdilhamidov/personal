@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @Gedmo\Tree(type="nested")
- * @ORM\Table(name="categories")
+ * @ORM\Table(name="blogcategories")
  * use repository for handy tree functions
  * @ORM\Entity(repositoryClass="Demos\BlogBundle\Entity\Repository\BlogCategoryRepository")
  */
@@ -29,6 +29,11 @@ class BlogCategory
      * @ORM\Column(name="title", type="string", length=128)
      */
     private $title;
+
+    /**
+     * @ORM\Column(name="title_en", type="string", length=128)
+     */
+    private $title_en;
 
     /**
      * @ORM\Column(name="slug", type="string", length=128)

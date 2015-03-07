@@ -31,6 +31,11 @@ class BlogCategory
     private $title;
 
     /**
+     * @ORM\Column(name="title_en", type="string", length=128)
+     */
+    private $title_en;
+
+    /**
      * @ORM\Column(name="slug", type="string", length=128)
      */
     private $slug;
@@ -317,5 +322,28 @@ class BlogCategory
     public function getSort()
     {
         return $this->sort;
+    }
+
+    /**
+     * Set title_en
+     *
+     * @param string $titleEn
+     * @return BlogCategory
+     */
+    public function setTitleEn($titleEn)
+    {
+        $this->title_en = $titleEn;
+
+        return $this;
+    }
+
+    /**
+     * Get title_en
+     *
+     * @return string 
+     */
+    public function getTitleEn()
+    {
+        return $this->title_en;
     }
 }

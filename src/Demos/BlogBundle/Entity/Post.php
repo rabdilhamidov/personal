@@ -24,6 +24,11 @@ protected $id;
 protected $title;
 
 /**
+* @ORM\Column(name="titleEn", type="string", length=255, nullable=true)
+*/
+protected $titleEn;
+
+/**
 * @ORM\Column(name="sort", type="integer", nullable=true)
 */
 protected $sort;
@@ -49,6 +54,11 @@ public $user;
 * @ORM\Column(type="text", nullable=true)
 */
 protected $body;
+
+/**
+* @ORM\Column(name="bodyEn", type="text", nullable=true)
+*/
+protected $bodyEn;
 
 /**
 * @ORM\Column(type="datetime")
@@ -351,5 +361,51 @@ protected $image;
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set title_en
+     *
+     * @param string $titleEn
+     * @return Post
+     */
+    public function setTitleEn($titleEn)
+    {
+        $this->title_en = $titleEn;
+
+        return $this;
+    }
+
+    /**
+     * Get title_en
+     *
+     * @return string 
+     */
+    public function getTitleEn()
+    {
+        return $this->titleEn;
+    }
+
+    /**
+     * Set body_en
+     *
+     * @param string $bodyEn
+     * @return Post
+     */
+    public function setBodyEn($bodyEn)
+    {
+        $this->bodyEn = $bodyEn;
+
+        return $this;
+    }
+
+    /**
+     * Get body_en
+     *
+     * @return string 
+     */
+    public function getBodyEn()
+    {
+        return $this->bodyEn;
     }
 }

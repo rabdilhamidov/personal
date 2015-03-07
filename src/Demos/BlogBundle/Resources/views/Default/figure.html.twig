@@ -8,10 +8,19 @@
 		{% endif %}
 	</a>
 	{% endif %}
-	{% if post.title or post.body %}
+
+	{% if app.request.locale == 'en' %}
+		{% set title = post.titleEn %}
+		{% set body = post.bodyEn %}
+	{% else %}
+		{% set title = post.title %}
+		{% set body = post.body %}
+	{% endif %}
+
+	{% if title or body %}
 		<figcaption>
-			{% if post.title %}<h4>{{ post.title }}</h4>{% endif %}
-			{% if post.body %}<p>{{ post.body|raw }}</p>{% endif %}
+			{% if title %}<h4>{{ title }}</h4>{% endif %}
+			{% if body %}<p>{{ body|raw }}</p>{% endif %}
 		</figcaption>
 	{% endif %}
 </figure>

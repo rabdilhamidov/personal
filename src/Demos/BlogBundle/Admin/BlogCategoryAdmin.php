@@ -15,6 +15,7 @@ class BlogCategoryAdmin extends Admin
     {
         $formMapper
             ->add('title', null, array())
+            ->add('title_en', null, array())
             ->add('slug', null, array())
             ->add('parent', null, array())
             ->add('sort', null, array())
@@ -27,6 +28,7 @@ class BlogCategoryAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('title')
+            ->add('title_en')
             ->add('slug')
             ->add('parent')
         ;
@@ -38,6 +40,7 @@ class BlogCategoryAdmin extends Admin
         $listMapper
         	->addIdentifier('id')
             ->addIdentifier('title')
+            ->addIdentifier('title_en')
             ->addIdentifier('sort')
             ->addIdentifier('slug')
             ->add('parent')

@@ -13,8 +13,8 @@ class BlogController extends Controller
 {
     public function indexAction($slug1, $page)
     {
-    	$posts = array();
-    	$arParams = array();
+        $posts = array();
+        $arParams = array();
         $arParams['title'] = 'Блог';
         $arParams['slug1'] = $slug1;
 
@@ -53,7 +53,6 @@ class BlogController extends Controller
             array(
                 'posts' => $posts, 
                 'params' => $arParams,
-                'route' => 'demos_blog_blog'
             )
         ); 
     }

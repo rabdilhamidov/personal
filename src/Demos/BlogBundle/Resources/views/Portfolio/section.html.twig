@@ -7,6 +7,7 @@
 {% block content %}
 	<section class="chapter">
 		<div class="content">
+			{# {{ dump(app.request.defaultLocale) }} #}
 			<h2>{{ params.title }}</h2>
 			{% if params.category.childs %}
 			<nav class="sub-category">
@@ -15,7 +16,11 @@
 					<li>
 						<a href="{{ path('demos_blog_section', { 'slug1': params.slug1, 'slug2': category.slug}) }}" 
 						class="{{ category.slug }} {{ params.slug2 == category.slug  ? 'current' : '' }}">
-							{{ category.title}}
+							{% if app.request.locale == 'en' %}
+								{{ category.titleEn }}
+							{% else %}
+							    {{ category.title }}
+							{% endif %}
 						</a>
 					</li>
 				{% endfor %}

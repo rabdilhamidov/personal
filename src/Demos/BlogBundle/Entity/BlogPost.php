@@ -24,6 +24,11 @@ protected $id;
 protected $title;
 
 /**
+* @ORM\Column(name="titleEn", type="string", length=255, nullable=true)
+*/
+protected $titleEn;
+
+/**
 * @ORM\Column(name="sort", type="integer", nullable=true)
 */
 protected $sort;
@@ -44,6 +49,11 @@ public $user;
 * @ORM\Column(type="text", nullable=true)
 */
 protected $body;
+
+/**
+* @ORM\Column(name="bodyEn", type="text", nullable=true)
+*/
+protected $bodyEn;
 
 /**
 * @ORM\Column(type="datetime")
@@ -361,5 +371,52 @@ protected $image;
     public function addCategorySlug()
     {
         $this->setCategorySlug($this->category->getSlug());
+    }
+
+
+    /**
+     * Set titleEn
+     *
+     * @param string $titleEn
+     * @return BlogPost
+     */
+    public function setTitleEn($titleEn)
+    {
+        $this->titleEn = $titleEn;
+
+        return $this;
+    }
+
+    /**
+     * Get titleEn
+     *
+     * @return string 
+     */
+    public function getTitleEn()
+    {
+        return $this->titleEn;
+    }
+
+    /**
+     * Set bodyEn
+     *
+     * @param string $bodyEn
+     * @return BlogPost
+     */
+    public function setBodyEn($bodyEn)
+    {
+        $this->bodyEn = $bodyEn;
+
+        return $this;
+    }
+
+    /**
+     * Get bodyEn
+     *
+     * @return string 
+     */
+    public function getBodyEn()
+    {
+        return $this->bodyEn;
     }
 }

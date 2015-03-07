@@ -26,6 +26,9 @@ class PortfolioController extends Controller
 
     public function sectionAction($slug1, $slug2, $page)
     {
+        $default_locale =  $this->container->getParameter('locale');
+        $locale = $this->get('request')->getLocale();
+
         $arParams = array();
         $arTest = array();
 
@@ -37,9 +40,16 @@ class PortfolioController extends Controller
         $repoCat = $this->getDoctrine()->getRepository('DemosBlogBundle:Category');
         $rootCategory = $repoCat->findOneBySlug($slug1);
         $category = $repoCat->findOneBySlug($arParams['slug2'] ? $arParams['slug2'] : $arParams['slug1']);
-        $arParams['title'] = $rootCategory->getTitle();
+        switch ($locale) {
+            case 'en':
+                $arParams['title'] = $rootCategory->getTitleEn();
+                break;
+            
+            default:
+                $arParams['title'] = $rootCategory->getTitle();
+                break;
+        }
         $arParams['category']['childs'] = $repoCat->getChildren($rootCategory, null, 'sort');
-        // $arTest = $repoCat->childrenHierarchy();
         
         // посты
         $repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');

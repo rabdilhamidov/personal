@@ -4,6 +4,7 @@ namespace Demos\BlogBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\HttpFoundation\Request;
 
 class Builder extends ContainerAware
 {
@@ -13,15 +14,18 @@ class Builder extends ContainerAware
         $arCat = $repoCat->childrenHierarchy();
         $menu = $factory->createItem('header_menu');
 
+        $request = $this->container->get('request');
+        $title_name = $request->getLocale() == 'ru' ? 'title' : 'title_'.$request->getLocale();
+
         foreach ($arCat as $cat) {
         	if(in_array($cat['slug'], array('web', 'design', 'photo'))){
-	    	    $menu->addChild($cat['title'], array(
+	    	    $menu->addChild($cat[$title_name], array(
 	    	    	'route' => 'demos_blog_section', 
 	    	    	'routeParameters' => array('slug1' => $cat['slug']))
 	    		);
 	    		if(count($cat['__children']) > 0){
 	    			foreach ($cat['__children'] as $subCat) {
-		    			$menu[$cat['title']]->addChild($subCat['title'], array(
+		    			$menu[$cat[$title_name]]->addChild($subCat[$title_name], array(
 			    	    	'route' => 'demos_blog_section', 
 			    	    	'routeParameters' => array('slug1' => $cat['slug'], 'slug2' => $subCat['slug'])
 			    	    	)
@@ -42,9 +46,11 @@ class Builder extends ContainerAware
         $arCat = $repoCat->findAll();
         $menu = $factory->createItem('left_menu');
 
-        foreach ($arCat as $cat) {
+        $request = $this->container->get('request');
 
-    	    $menu->addChild($cat->getTitle(), array(
+        foreach ($arCat as $cat) {
+            $cat_title = $request->getLocale() == 'ru' ? $cat->getTitle() : $cat->getTitleEn();
+    	    $menu->addChild($cat_title, array(
     	    	'route' => 'demos_blog_blog', 
     	    	'routeParameters' => array('slug1' => $cat->getSlug()))
     		);

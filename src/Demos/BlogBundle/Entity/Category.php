@@ -31,6 +31,11 @@ class Category
     private $title;
 
     /**
+     * @ORM\Column(name="title_en", type="string", length=128)
+     */
+    private $title_en;
+
+    /**
      * @ORM\Column(name="slug", type="string", length=128)
      */
     private $slug;
@@ -93,6 +98,18 @@ class Category
         return $this->title;
     }
 
+    public function setTitleEn($titleEn)
+    {
+        $this->title_en = $titleEn;
+
+        return $this;
+    }
+
+    public function getTitleEn()
+    {
+        return $this->title_en;
+    }
+    
     public function setParent(Category $parent = null)
     {
         $this->parent = $parent;

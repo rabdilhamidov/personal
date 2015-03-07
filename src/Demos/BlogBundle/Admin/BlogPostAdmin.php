@@ -16,12 +16,14 @@ class BlogPostAdmin extends Admin
     {
         $formMapper
             ->add('title', null, array('required' => true, 'label' => 'Название'))
+            ->add('titleEn', null, array('required' => true, 'label' => 'Название (EN)'))
             ->add('slug', null, array('required' => true, 'label' => 'Слаг'))
             ->add('category', null, array('class' => 'Demos\BlogBundle\Entity\BlogCategory', 'property' => 'title', 'required' => true))
             ->add('image', 'sonata_type_model_list', array('required' => false, 'label' => 'Изображение'), array())
             ->add('sort', null, array('label' => 'Индекс сортировки'))
             ->add('user', null, array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username', 'required' => true, 'label' => 'Автор'))
             ->add('body', null, array('label' => 'Текст'))
+            ->add('bodyEn', null, array('label' => 'Текст (EN)'))
 
             // ->add('created_date', 'text', array('label' => 'Created date', 'required' => false))
         ;
@@ -46,6 +48,7 @@ class BlogPostAdmin extends Admin
         $listMapper
         	->addIdentifier('id')
             ->addIdentifier('title')
+            ->addIdentifier('titleEn')
             ->add('slug')
             ->add('category')
             ->add('sort')
