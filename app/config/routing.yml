@@ -4,7 +4,12 @@ application_sonata_admin:
 
 demos_blog:
     resource: "@DemosBlogBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /{_locale}
+    requirements:
+        _locale:  %available_langs%
+
+login_check:
+    pattern: /login_check 
 
 app:
     resource: @AppBundle/Controller/

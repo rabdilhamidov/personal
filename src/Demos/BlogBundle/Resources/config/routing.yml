@@ -1,7 +1,7 @@
 
 demos_blog_homepage:
     pattern:     /
-    defaults: { _controller: DemosBlogBundle:Default:index }
+    defaults: { _controller: DemosBlogBundle:Default:index, _locale: %locale% }
 
 # demos_blog_portfolio:
 #     pattern:     /portfolio/{slug}/{page}
@@ -9,15 +9,15 @@ demos_blog_homepage:
 #     requirements:
 #             page:  \d+
 
-demos_blog_portfolio:
-    pattern:     /portfolio
-    defaults: { _controller: DemosBlogBundle:Portfolio:index }
-    requirements:
-            page:  \d+
+# demos_blog_portfolio:
+#     pattern:     /portfolio
+#     defaults: { _controller: DemosBlogBundle:Portfolio:index }
+#     requirements:
+#             page:  \d+
 
 demos_blog_section:
     pattern:     /portfolio/{slug1}/{slug2}/{page}
-    defaults: { _controller: DemosBlogBundle:Portfolio:section, slug1: '', slug2: '', page: 1 }
+    defaults: { _controller: DemosBlogBundle:Portfolio:section, slug1: 'web', slug2: 'all', page: 1 }
     requirements:
             page:  \d+
 
@@ -47,8 +47,7 @@ demos_blog_logout_target:
     pattern: /{backurl}
     defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
 
-login_check:
-    pattern: /login_check 
+
 
 
 

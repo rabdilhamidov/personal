@@ -8,8 +8,7 @@ imports:
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
-    default_locale:  ru
-    # default_locale:  "%locale%"
+    default_locale:  "%locale%"
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -221,7 +220,8 @@ parameters:
 knp_menu:
     # use "twig: false" to disable the Twig extension and the TwigRenderer
     twig:
-        template: knp_menu.html.twig
+        # template: knp_menu.html.twig
+        template: DemosBlogBundle:Menu:knp_menu.html.twig
     #  if true, enables the helper for PHP templates
     templating: false
     # the renderer to use, list is also available by default

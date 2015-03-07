@@ -61,6 +61,8 @@ class DefaultController extends Controller
 
     	$posts['blog'] = $repoBlogPost->query_posts(array('quantity' => 9, 'orderBy' => 'sort'));
 
+    	// echo $locale = $this->get('request')->getLocale();
+
         return $this->render('DemosBlogBundle:Default:index.html.twig', 
         	array(
         		'posts' => $posts, 

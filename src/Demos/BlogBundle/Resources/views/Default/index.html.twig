@@ -1,6 +1,6 @@
 {% extends '::layout.front.html.twig' %}
 
-{% block title %}Абдилхамидов Руслан. Персональный сайт.{% endblock %}
+{% block title %}{% trans %}Абдилхамидов Руслан. Персональный сайт.{% endtrans %}{% endblock %}
 
 {% block bodyclass %}class="home"{% endblock %}
 	
@@ -10,7 +10,7 @@
 		
 	<section class="main-slider">
 		<div class="content">
-			<h2>Персональный сайт</h2>
+			<h2>{% trans %}Персональный сайт{% endtrans %}</h2>
 		</div>
 		<ul class="bxslider">
 			{% for mainBannerImg in mainBannerImgs %}
@@ -31,7 +31,7 @@
 	{% if posts.web %}
 		<section class="chapter">
 			<div class="content">
-				<h3>Производство сайтов</h3>
+				<h3>{% trans %}Производство сайтов{% endtrans %}</h3>
 				<div class="slider-1">
 					<ul class="bxslider">
 						{% for post in posts.web %}
@@ -46,7 +46,7 @@
 					</div>
 				</div>
 				<div class="chapter-footer">
-					<a href="{{url('demos_blog_section', {'slug1': 'web'}) }}" class="more">См. все</a>
+					<a href="{{url('demos_blog_section', {'slug1': 'web'}) }}" class="more">{% trans %}См. все{% endtrans %}</a>
 				</div>
 			</div>
 		</section>
@@ -54,7 +54,7 @@
 	{% if posts.design %}
 		<section class="chapter dark">
 			<div class="content">
-				<h3>Дизайн</h3>
+				<h3>{% trans %}Дизайн{% endtrans %}</h3>
 				<div class="slider-2">
 					<ul class="bxslider">
 						{% for post in posts.design %}
@@ -69,7 +69,7 @@
 					</div>
 				</div>
 				<div class="chapter-footer">
-					<a href="{{url('demos_blog_section', {'slug1': 'design'}) }}" class="more">См. все</a>
+					<a href="{{url('demos_blog_section', {'slug1': 'design'}) }}" class="more">{% trans %}См. все{% endtrans %}</a>
 				</div>
 			</div>
 		</section>
@@ -78,7 +78,7 @@
 	{% if posts.photo %}
 		<section class="chapter">
 			<div class="content">
-				<h3>Фотографии</h3>
+				<h3>{% trans %}Фотографии{% endtrans %}</h3>
 				<div class="slider-3">
 					<ul class="bxslider">
 						{% for post in posts.photo %}
@@ -93,7 +93,7 @@
 					</div>
 				</div>
 				<div class="chapter-footer">
-					<a href="{{url('demos_blog_section', {'slug1': 'photo'}) }}" class="more">См. все</a>
+					<a href="{{url('demos_blog_section', {'slug1': 'photo'}) }}" class="more">{% trans %}См. все{% endtrans %}</a>
 				</div>
 			</div>
 		</section>
@@ -102,7 +102,7 @@
 	{% if posts.blog %}
 		<section class="chapter blog">
 			<div class="content">
-				<h3>Блог</h3>
+				<h3>{% trans %}Блог{% endtrans %}</h3>
 				<div class="slider-blog">
 					<ul class="bxslider">
 						{% for post in posts.blog %}
@@ -119,7 +119,7 @@
 					</div>
 				</div>
 				<div class="chapter-footer">
-					<a href="{{ url('demos_blog_blog') }}" class="more">См. все</a>
+					<a href="{{ url('demos_blog_blog') }}" class="more">{% trans %}См. все{% endtrans %}</a>
 				</div>
 			</div>
 		</section>
@@ -134,9 +134,8 @@
 		{# <img src="" alt=""> #}
 	</figure>
 	<div class="help">
-		Esc или клик мыши закрывает окно.
+		{% trans %}Esc или клик мыши закрывает окно.{% endtrans %}
 	</div>
 	<div class="border"></div>
-	<a href="#" class="sitelink">Перейти на сайт</a>
 </div>
 {% endblock %}

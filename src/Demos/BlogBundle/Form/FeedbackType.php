@@ -12,6 +12,9 @@ class FeedbackType extends AbstractType
     {
         $builder->add('email');
         $builder->add('mess', 'textarea');
+        $builder->add('send', 'submit', array(
+            'attr' => array('class' => 'green'),
+        ));
     }
 
 

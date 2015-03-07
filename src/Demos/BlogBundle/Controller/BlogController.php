@@ -53,6 +53,7 @@ class BlogController extends Controller
             array(
                 'posts' => $posts, 
                 'params' => $arParams,
+                'route' => 'demos_blog_blog'
             )
         ); 
     }

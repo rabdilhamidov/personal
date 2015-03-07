@@ -22,29 +22,43 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body {% block bodyclass %}class="main"{% endblock %}>
+
+        {# {{ dump(app.request.requestUri) }} #}
+        {# {{ dump(app.request) }} #}
+        {# {{ dump(app.user.username) }} #}
         
         <div class="wrapper">
             <header class="header">
                 <div class="content">
                     <hgroup>
                         <a href="{{ path('demos_blog_homepage') }}" class="logo"></a>
-                        <h1>Абдилхамидов Руслан</h1>
+                        <h1>{% trans %}Абдилхамидов Руслан{% endtrans %}</h1>
                     </hgroup>
                     <nav class="main-navigation" role="navigation">
                         <button class="menu-toggle"></button>
                         
+                        <div class="local-block">
+                            <ul class="lang-menu">
+                              <li>
+                                  <a href="{{ path(app.request.get('_route'), 
+                                            app.request.get('_route_params')|merge({'_locale': 'ru'})) }}" class="ru">RU</a>
+                              </li>
+                              <li>
+                                  <a href="{{ path(app.request.get('_route'), 
+                                            app.request.get('_route_params')|merge({'_locale': 'en'})) }}" class="en">EN</a>
+                              </li>
+                            </ul>
+                        </div>
+
                         <div class="menu-block">
                             {{ knp_menu_render('DemosBlogBundle:Builder:mainMenu', {'depth': 2, 'currentAsLink': false}) }}
                         </div>
                         <div class="login">
-                            {# {{ dump(app.request.requestUri) }} #}
-                            {# {{ dump(app.request) }} #}
-                            {# {{ dump(app.user.username) }} #}
                             {% if app.user %}
                                 <span>{{ app.user.username }}</span> 
-                                <a href="{{ url('demos_blog_logout', {'backurl': app.request.requestUri | url_encode}) }}">Выход</a>
+                                <a href="{{ url('demos_blog_logout', {'backurl': app.request.requestUri | url_encode}) }}">{% trans %}Выход{% endtrans %}</a>
                             {% else %}
-                                <a class="login" href="{{ path('demos_blog_login') }}">Вход</a>
+                                <a class="login" href="{{ path('demos_blog_login') }}">{% trans %}Вход{% endtrans %}</a>
                                 {{ render(controller("DemosBlogBundle:Default:login", { 'request': app.request }  )) }}
                             {% endif %}
                         </div>
@@ -61,7 +75,7 @@
         <footer class="footer">
             <div class="content">
                 <div class="leftblock">
-                    <h3>Абдилхамидов Руслан</h3>
+                    <h3>{% trans %}Абдилхамидов Руслан{% endtrans %}</h3>
                     <span class="year">&emsp;|&emsp;2015</span>
                     <nav class="footer-nav">
                         {{ knp_menu_render('DemosBlogBundle:Builder:mainMenu', {'depth': 2, 'currentAsLink': false}) }}

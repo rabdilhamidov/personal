@@ -684,7 +684,10 @@ section.chapter {
 header nav.main-navigation {
   display: inline-block;
   margin-left: 10px;
-  margin-top: 45px; }
+  margin-top: 24px;
+  margin-right: 90px;
+  width: 535px;
+  overflow: hidden; }
   header nav.main-navigation a, header nav.main-navigation span {
     text-transform: uppercase;
     font-size: 15px;
@@ -692,10 +695,24 @@ header nav.main-navigation {
     font-family: "rb"; }
   header nav.main-navigation button.menu-toggle {
     display: none; }
+  header nav.main-navigation .local-block {
+    text-align: right;
+    margin-bottom: 3px; }
+    header nav.main-navigation .local-block ul li {
+      display: inline-block; }
+      header nav.main-navigation .local-block ul li a {
+        width: 50px;
+        height: 32px;
+        color: transparent; }
+        header nav.main-navigation .local-block ul li a.ru {
+          background: url("../images/flag_russia.svg") center no-repeat; }
+        header nav.main-navigation .local-block ul li a.en {
+          background: url("../images/flag_uk.svg") center no-repeat; }
   header nav.main-navigation .menu-block {
-    display: inline-block; }
+    display: inline-block;
+    float: right; }
     header nav.main-navigation .menu-block > ul li {
-      margin-right: 12px;
+      margin-right: 10px;
       display: inline-block;
       height: 30px; }
       header nav.main-navigation .menu-block > ul li:last-child {
@@ -730,7 +747,8 @@ header nav.main-navigation {
             color: #f5f5f5; }
   header nav.main-navigation div.login {
     text-align: right;
-    margin-top: -9px; }
+    margin-top: -9px;
+    float: right; }
     header nav.main-navigation div.login a {
       font-size: 12px;
       font-family: "rr"; }
@@ -741,6 +759,10 @@ header nav.main-navigation {
       color: #f5f5f5;
       display: inline-block;
       margin-right: 5px; }
+  header nav.main-navigation:after {
+    content: ' ';
+    display: block;
+    clear: both; }
 
 footer nav.footer-nav {
   margin-left: 84px;
@@ -960,8 +982,10 @@ article {
     .form-report-block .form-message h4 {
       font-family: 'rb';
       font-weight: normal; }
-    .form-report-block .form-message ul li {
-      margin-top: 5px; }
+    .form-report-block .form-message ul {
+      margin-top: 0; }
+      .form-report-block .form-message ul li {
+        margin-top: 0; }
 
 /**
  * Footer
