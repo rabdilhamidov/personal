@@ -23,7 +23,7 @@ class BaseRepository extends EntityRepository
 			$arParams['orderBy2'] = isset($arParams['orderBy2']) ? $arParams['orderBy2'] : 'created_date';
 			$arParams['orderRule2'] = isset($arParams['orderRule2']) ? $arParams['orderRule2'] : 'DESC';
 		}else{
-			$arParams['orderBy'] = 'updated_date';
+			$arParams['orderBy'] = 'created_date';
 		}
 		$arParams['orderRule'] = isset($arParams['orderRule']) ? $arParams['orderRule'] : 'DESC';
 
@@ -38,7 +38,7 @@ class BaseRepository extends EntityRepository
 		if(isset($arParams['catID'])){
 			$q_select -> where($qb->expr()->in('p.category', $arParams['catID']));
 		}
-		if($arParams['orderBy'] != 'updated_date'){
+		if($arParams['orderBy'] != 'created_date'){
 			$q_select -> addOrderBy('p.'.$arParams['orderBy2'], $arParams['orderRule2']);
 		}
 
