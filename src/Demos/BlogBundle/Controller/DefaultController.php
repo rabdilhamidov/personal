@@ -32,13 +32,21 @@ class DefaultController extends Controller
     		$mainBannerImgs[] = $galleryHasMedia->getMedia();
     	}
 
+    	$repoCat = $this->getDoctrine()->getRepository('DemosBlogBundle:Category');
+    	$repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');
+    	
     	// вэб
     	$posts = array();
-    	$repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');
-    	$posts['web'] = $repoPost->query_posts(array('catID'=>72, 'quantity' => 9, 'orderBy' => 'sort'));
+    	$web = $repoCat->findOneBySlug('web');
+    	$arCat = $repoCat->getChildren($web, false, 'sort', 'asc');
+    	$arCatId = array();
+    	foreach ($arCat as $cat) {
+    		$arCatId[] = $cat->getId();
+    	}
+    	$posts['web'] = $repoPost->query_posts(array('catID' => $arCatId, 'quantity' => 9, 'orderBy' => 'sort'));
+    	unset($arCatId);
 
     	// дизайн
-    	$repoCat = $this->getDoctrine()->getRepository('DemosBlogBundle:Category');
     	$design = $repoCat->findOneBySlug('design');
     	$arCat = $repoCat->getChildren($design, false, 'sort', 'asc');
     	$arCatId = array();

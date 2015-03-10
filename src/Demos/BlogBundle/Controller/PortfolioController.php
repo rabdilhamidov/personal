@@ -39,7 +39,8 @@ class PortfolioController extends Controller
         // категории
         $repoCat = $this->getDoctrine()->getRepository('DemosBlogBundle:Category');
         $rootCategory = $repoCat->findOneBySlug($slug1);
-        $category = $repoCat->findOneBySlug($arParams['slug2'] ? $arParams['slug2'] : $arParams['slug1']);
+
+        $category = $repoCat->findOneBySlug($arParams['slug2'] != 'all' ? $arParams['slug2'] : $arParams['slug1']);
         switch ($locale) {
             case 'en':
                 $arParams['title'] = $rootCategory->getTitleEn();
@@ -55,13 +56,13 @@ class PortfolioController extends Controller
         $repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:Post');
         $postsLength = $repoPost->count_posts(array('catID'=>$category->getId()));
 
-        $catID = $category->getId();
-        if(!$arParams['slug2'] && !$postsLength && $arParams['category']['childs']) {
+        if($arParams['slug2'] == 'all' && !$postsLength && $arParams['category']['childs']) {
             $catID = $arParams['category']['childs'][0] -> getId();
             $postsLength = $repoPost->count_posts(array('catID'=>$catID));
             $arParams['slug2'] = $arParams['category']['childs'][0] -> getSlug();
+        }else{
+            $catID = $category->getId();
         }
-
         if($postsLength > 0){
             $pager = new CPagination($postsLength);
             $arParams['pager'] = $pager->getPager($page);

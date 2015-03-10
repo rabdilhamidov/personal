@@ -16,12 +16,14 @@ class PostAdmin extends Admin
     {
         $formMapper
             ->add('title', null, array())
+            ->add('titleEn', null, array())
             ->add('slug', null, array('required' => false, 'label' => 'Slug'))
             ->add('category', null, array('class' => 'Demos\BlogBundle\Entity\Category', 'property' => 'title', 'required' => true))
             ->add('image', 'sonata_type_model_list', array(), array())
             ->add('sort')
             ->add('user', null, array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username', 'required' => true))
             ->add('body')
+            ->add('bodyEn')
 
             // ->add('created_date', 'text', array('label' => 'Created date', 'required' => false))
         ;
@@ -46,17 +48,20 @@ class PostAdmin extends Admin
         $listMapper
         	->addIdentifier('id')
             ->addIdentifier('title')
+            ->addIdentifier('titleEn')
             ->add('slug')
             ->add('category')
             ->add('sort')
             ->add('image', null, array('template' => 'ApplicationSonataAdminBundle:CRUD:list_orm_many_to_one.html.twig', 'link_parameters' => array('context' => 'default')))
             ->add('updated_date', 'datetime', array('format' => "dd-MM-yyyy HH:mm:ss", 'template' => 'ApplicationSonataAdminBundle:CRUD:list_datetime.html.twig'))
+            ->add('body')
             // add custom action links
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'delete' => array(),
                 )
             ))
+
         ;
     }
 
