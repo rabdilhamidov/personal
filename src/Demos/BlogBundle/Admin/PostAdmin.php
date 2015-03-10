@@ -24,8 +24,8 @@ class PostAdmin extends Admin
             ->add('user', null, array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username', 'required' => true))
             ->add('body')
             ->add('bodyEn')
-
-            // ->add('created_date', 'text', array('label' => 'Created date', 'required' => false))
+            ->add('created_date', 'datetime', array('label' => 'Дата создания', 'required' => false))
+            ->add('updated_date', 'datetime', array('label' => 'Дата обновления', 'required' => false))
         ;
     }
 
@@ -53,8 +53,8 @@ class PostAdmin extends Admin
             ->add('category')
             ->add('sort')
             ->add('image', null, array('template' => 'ApplicationSonataAdminBundle:CRUD:list_orm_many_to_one.html.twig', 'link_parameters' => array('context' => 'default')))
+            ->add('created_date', 'datetime', array('format' => "dd-MM-yyyy HH:mm:ss", 'template' => 'ApplicationSonataAdminBundle:CRUD:list_datetime.html.twig'))
             ->add('updated_date', 'datetime', array('format' => "dd-MM-yyyy HH:mm:ss", 'template' => 'ApplicationSonataAdminBundle:CRUD:list_datetime.html.twig'))
-            ->add('body')
             // add custom action links
             ->add('_action', 'actions', array(
                 'actions' => array(

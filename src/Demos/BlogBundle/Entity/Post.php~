@@ -364,20 +364,20 @@ protected $image;
     }
 
     /**
-     * Set title_en
+     * Set titleEn
      *
      * @param string $titleEn
      * @return Post
      */
     public function setTitleEn($titleEn)
     {
-        $this->title_en = $titleEn;
+        $this->titleEn = $titleEn;
 
         return $this;
     }
 
     /**
-     * Get title_en
+     * Get titleEn
      *
      * @return string 
      */

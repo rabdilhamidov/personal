@@ -20,7 +20,7 @@ class BaseRepository extends EntityRepository
 		$arParams['locale'] = isset($arParams['locale']) ? $arParams['locale'] : NULL;
 
 		if(isset($arParams['orderBy'])){
-			$arParams['orderBy2'] = isset($arParams['orderBy2']) ? $arParams['orderBy2'] : 'updated_date';
+			$arParams['orderBy2'] = isset($arParams['orderBy2']) ? $arParams['orderBy2'] : 'created_date';
 			$arParams['orderRule2'] = isset($arParams['orderRule2']) ? $arParams['orderRule2'] : 'DESC';
 		}else{
 			$arParams['orderBy'] = 'updated_date';
