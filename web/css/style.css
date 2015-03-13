@@ -373,7 +373,7 @@ header {
       height: 116px;
       vertical-align: top;
       color: #f5f5f5;
-      font-size: 33px;
+      font-size: 32px;
       line-height: 35px;
       padding-left: 5px;
       padding-top: 20px; }
@@ -631,6 +631,7 @@ section.chapter {
   height: 100%;
   background-color: #f5f5f5;
   position: fixed;
+  cursor: pointer;
   bottom: 0;
   left: 0;
   z-index: 1; }
