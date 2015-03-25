@@ -126,12 +126,6 @@ $(function () {
       center_slide();
     }
   });
-  $(window).load(function () {
-    // слайдов главного слайдера
-    if ($('.main-slider').length) {
-      center_slide();
-    }
-  });
 });
 /*
 */
