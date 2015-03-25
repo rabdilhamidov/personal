@@ -41,3 +41,5 @@
 /composer.lock
 /bin
 /app/cache
+/app/config/parameters.yml
+/app/config/parameters.yml.dist
