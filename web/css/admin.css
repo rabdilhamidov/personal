@@ -40,3 +40,43 @@
 	height: 34px;
 	padding: 3px 0px 0px 8px;
 }
+
+.field-short-description{
+	min-width: 100px;
+	min-height: 31px;
+}
+.field-short-description a{
+	vertical-align: top;
+}
+.field-short-description img{
+	width: 100px;
+	height: auto;
+	margin-right: 5px;
+}
+.field-short-description img.fw-loader{
+	width: auto;
+	height: auto;
+}
+.field-container:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+input.form-control[type="file"]{
+	height: auto;
+}
+.row{
+	margin-right: 0;
+}
+.col-md-12{
+	padding-right: 0;
+}
+.right-side > .content-header{
+	padding-left: 14px;
+}
+.alert{
+	margin-left: 0;
+}
+.box .box-body{
+	overflow: auto;
+}

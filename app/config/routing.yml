@@ -1,3 +1,7 @@
+application_sonata_doctrine_orm_admin:
+    resource: "@ApplicationSonataDoctrineORMAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 application_sonata_admin:
     resource: "@ApplicationSonataAdminBundle/Resources/config/routing.yml"
     prefix:   /

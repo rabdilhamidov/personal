@@ -129,10 +129,10 @@ sonata_media:
     contexts:
         default:  # the default context is mandatory
             providers:
-                - sonata.media.provider.dailymotion
+                # - sonata.media.provider.dailymotion
                 - sonata.media.provider.youtube
                 - sonata.media.provider.image
-                - sonata.media.provider.file
+                # - sonata.media.provider.file
 
             formats:
                 small: { width: 100 , quality: 80}
@@ -185,6 +185,7 @@ sonata_admin:
         list:               ApplicationSonataAdminBundle:CRUD:list.html.twig
         inner_list_row:     ApplicationSonataAdminBundle:CRUD:list_inner_row.html.twig
         edit:               ApplicationSonataAdminBundle:CRUD:edit.html.twig
+        short_object_description:       ApplicationSonataAdminBundle:Helper:short-object-description.html.twig
     dashboard:
         blocks:
             -
@@ -209,6 +210,10 @@ sonata_admin:
             #             <p>This is a <code>sonata.block.service.text</code> from the Block
             #             Bundle, you can create and add new block in these area by configuring
             #             the <code>sonata_admin</code> section.</p>
+
+sonata_doctrine_orm_admin:
+    templates:
+        form: [ ApplicationSonataDoctrineORMAdminBundle:Form:form_admin_fields.html.twig ]
 
 sonata_user:
     security_acl: true
