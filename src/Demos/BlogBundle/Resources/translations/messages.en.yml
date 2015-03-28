@@ -1,4 +1,6 @@
 "Абдилхамидов Руслан. Персональный сайт.": "Abdilkhamidov Ruslan. Personal Page"
+"Абдилхамидов Руслан. Портфолио": "Abdilkhamidov Ruslan. Portfolio"
+"Абдилхамидов Руслан. Блог": "Abdilkhamidov Ruslan. Blog"
 "Персональный сайт": "Personal Page"
 "Производство сайтов": "Web Development"
 "Дизайн": "Design"
@@ -8,7 +10,6 @@
 "Контакты": "Contacts"
 "Блог": "Blog"
 "Журналы": "Magazines"
-
 "См. все": "View All"
 "Esc или клик мыши закрывает окно.": "Press Esc or mouse click to close the window"
 "Абдилхамидов Руслан": "Abdilkhamidov Ruslan"
@@ -23,5 +24,14 @@
 "Указанный email не корректен": "Email is wrong"
 "Напишите сообщение": "Write the message"
 "Cообщение слишком короткое": "Your message is too short"
-
 "Назад": "Back"
+"Звоните, пишите. Буду рад обсудить варианты сотрудничества или ответить на интересующие вопросы.": "Please write or call me to get answers for your questions."
+
+"Образование": "Education"
+"trans_education": "higher (<a href=\"http://kpi.ua/en\" target=\"_blank\">NTUU \"KPI\"</a>, Faculty of Computer Science - FCS, 1989 - 1995)."
+"Общий стаж работы": "Total experience"
+"в области WEB-программирования 7 лет.": "7 year as web developer"
+"в области дизайна и верстки более 10 лет.": "10 years as designer in polygraphy"
+
+"Тел": "Tel"
+"Время": "Time"
