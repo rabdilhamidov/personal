@@ -236,7 +236,8 @@ a {
   a.close1 {
     background: url("../images/close1.svg") center no-repeat;
     width: 16px;
-    height: 16px; }
+    height: 16px;
+    display: inline-block; }
   a.back {
     display: inline-block;
     width: 100px;

@@ -11,3 +11,12 @@ Demos\BlogBundle\Entity\Feedback:
             - Length:
                 min: 3
                 minMessage: Cообщение слишком короткое
+
+Demos\BlogBundle\Entity\BlogComment:
+    properties:
+        body:
+            - NotBlank:
+                message: Напишите комментарий
+            - Length:
+                min: 3
+                minMessage: Комментарий слишком короткий

@@ -40,10 +40,10 @@ protected $slug;
 
 
 /**
- * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User", inversedBy="post")
+ * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
  * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
  */
-public $user;
+protected $user;
 
 /**
 * @ORM\Column(type="text", nullable=true)

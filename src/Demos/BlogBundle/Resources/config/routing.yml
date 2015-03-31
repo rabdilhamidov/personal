@@ -25,6 +25,10 @@ demos_blog_blog:
     pattern: /blog/{slug1}/{page}
     defaults: { _controller: DemosBlogBundle:Blog:index, slug1: 'all', page: 1 }
 
+demos_blog_comment:
+    pattern: /comment/{id}/{act}
+    defaults: { _controller: DemosBlogBundle:Blog:comment }
+
 
 
 demos_blog_about:

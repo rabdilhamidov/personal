@@ -26,12 +26,18 @@
 "Cообщение слишком короткое": "Your message is too short"
 "Назад": "Back"
 "Звоните, пишите. Буду рад обсудить варианты сотрудничества или ответить на интересующие вопросы.": "Please write or call me to get answers for your questions."
+"Ваш комментарий": "Your comment here..."
+"Напишите комментарий": "Write something"
+"Комментарий слишком короткий": "Your comment is too short"
+"Спасибо! Ваш комментарий принят.": "Thanks for your comment"
+"Сохранить": "Save"
+
+
 "Образование": "Education"
 "trans_education": "higher (<a href=\"http://kpi.ua/en\" target=\"_blank\">NTUU \"KPI\"</a>, Faculty of Computer Science - FCS, 1989 - 1995)."
 "Общий стаж работы": "Total experience"
 "в области WEB-программирования 7 лет.": "7 year as web developer"
 "в области дизайна и верстки более 10 лет.": "10 years as designer in polygraphy"
-
 "Профессиональные навыки": "Skills"
 "WEB-программирование": "Web development"
 "Дизайн, верстка, программирование и поддержка сайтов на: 1C Bitrix, WordPress, собственном коде (php, MYSQL, jquery), флэш (AS3)": "Design, html mark-up, programming and support web sites on 1C Bitrix, Wordpress, my own cms (php, MYSQL, jquery), flash (AS3)"
@@ -41,7 +47,6 @@
 "<li>- Участие в фотосессиях.</li>": ""
 "<li>- Знание полиграфических процессов и требований к допечатной подготовке.</li>": ""
 "Стаж <span>(последние 5 мест)</span>": "Work Experience (last 5 places)"
-
 "Тел": "Tel"
 "Время": "Time"
 "Должность": "Position"

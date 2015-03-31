@@ -1,0 +1,21 @@
+{% form_theme comment_form 'DemosBlogBundle:Form:form_theme.html.twig' %}
+
+<form action="" method="post" {{ form_enctype(comment_form) }} class="comment" id="comment" novalidate>
+    {% if comment_form.vars.submitted %}
+    <div class="comment-form-report-block {{ isFbkFormValid ? 'success' : 'error' }}">
+        <a href="#" class="close1"></a>
+        <div class="sign"></div>
+        <div class="form-message">
+            {% if isFbkFormValid %}
+                {% trans %}Спасибо! Ваш комментарий принят.{% endtrans %}
+            {% else %}
+                {{ form_errors(comment_form.body) }}
+            {% endif %}
+        </div>
+    </div>
+    {% endif %} 
+
+    {{ form_widget(comment_form.body, { 'attr': {'placeholder': 'Ваш комментарий'|trans } }) }}
+    {{ form_widget(comment_form.save, {'label': 'Сохранить'|trans}) }}
+    {{ form_rest(comment_form) }}
+</form>

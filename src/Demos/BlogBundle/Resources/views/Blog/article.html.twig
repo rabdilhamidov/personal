@@ -1,3 +1,5 @@
+{# {{ dump(app.user) }} #}
+
 {% if post %}
 	{% if app.request.locale == 'en' %}
 		{% set title = post.titleEn %}
@@ -17,6 +19,32 @@
 		<div class="post-body">
 			{{ body | raw() }} 
 		</div>
+		
+		{% if comments|length > 0 %}
+			<div class="post-comments">
+				<h4>{% trans %}Комментарии{% endtrans %}</h4>
+				<ul>
+					{% for comment in comments %}
+						<li class="post-comment">
+							<h5>{{ comment.user }}</h5>
+							<div class="post-comment-body">
+								{{ comment.body }}
+							</div>
+							{% if app.user == comment.user %}
+								<a href="{{ url('demos_blog_comment', {'id': comment.id, 'act': 'delete'}) }}" class="close1"></a>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+
+		{% if is_granted('ROLE_USER') %}
+			<div class="post-comment">
+				{% include 'DemosBlogBundle:Blog:form_comment.html.twig' with {'comment_form': comment_form} %}
+			</div>
+		{% endif %}
+
 		<div class="post-footer">
 			<a href="{{ url('demos_blog_blog', {'slug1': params.slug1}) }}" class="back" onclick="history.back();">{% trans %}Назад{% endtrans %}</a>
 		</div>

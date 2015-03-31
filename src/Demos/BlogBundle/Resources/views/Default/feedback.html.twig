@@ -1,7 +1,9 @@
 {% form_theme form 'DemosBlogBundle:Form:form_theme.html.twig' %}
 
+    {# {{ dump(form.vars.submitted) }} #}
+
 <form action="" method="post" {{ form_enctype(form) }} class="feedback" id="feedback" novalidate>
-    {% if isPostData %}
+    {% if form.vars.submitted %}
     <div class="form-report-block {{ isFbkFormValid ? 'success' : 'error' }}">
         <a href="#" class="close1"></a>
         <div class="sign"></div>
