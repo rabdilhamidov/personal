@@ -114,6 +114,35 @@ $(function () {
         $('.fullscreen .img-block img').remove();
       });
     }
+  }).on('click', '.post-comment-controls .close1', function (event) {
+    event.preventDefault();
+    var route = Routing.generate('ajax_comment_delete', { id: $(this).data('id') });
+    // console.log('Route: '+route);
+    var this_comment = $(this).parent().parent().parent('.post-comment');
+    $(this_comment).append('<div class = "comment-edit-progress"><span class="spinner"></span></div>');
+    var preloader = $(this_comment).children('.comment-edit-progress');
+    $(preloader).fadeIn(300, function () {
+      $.ajax({
+        type: 'POST',
+        url: route,
+        success: function (data) {
+          console.log('JSON.stringify(data): ' + JSON.stringify(data));
+          console.log('id: ' + data.answer.id + '; report: ' + data.answer.report);
+          if (data.answer.report) {
+            $(this_comment).slideUp(300, function () {
+              $(preloader).detach();
+              $(this_comment).detach();
+            });
+          }
+        },
+        error: function (jqXHR, textStatus) {
+          console.log('Request failed: ' + textStatus + '; Status: ' + jqXHR.status);
+        }
+      });
+    });
+  }).on('click', '.post-comment-controls .edit', function (event) {
+    event.preventDefault();
+    console.log('.post-comment-controls .edit click');  //...
   });
   ;
   $(window).resize(function () {

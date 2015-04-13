@@ -21,18 +21,24 @@
 		</div>
 		
 		{% if comments|length > 0 %}
-			<div class="post-comments">
+			<div class="post-comments" id="post-comments">
 				<h4>{% trans %}Комментарии{% endtrans %}</h4>
 				<ul>
 					{% for comment in comments %}
 						<li class="post-comment">
-							<h5>{{ comment.user }}</h5>
+							<div class="post-comment-head">
+								<h5>{{ comment.user }}</h5>
+								<span class="date">{{ comment.updatedDate|date("d-m-Y H:i") }}</span>
+								{% if app.user == comment.user %}
+									<div class="post-comment-controls">
+										<a href="{{ url('demos_blog_comment', {'id': comment.id, 'act': 'edit'}) }}" class="edit disabled" data-id="{{ comment.id }}"></a>
+										<a href="{{ url('demos_blog_comment', {'id': comment.id, 'act': 'delete'}) }}" class="close1" data-id="{{ comment.id }}"></a>
+									</div>
+								{% endif %}
+							</div>
 							<div class="post-comment-body">
 								{{ comment.body }}
 							</div>
-							{% if app.user == comment.user %}
-								<a href="{{ url('demos_blog_comment', {'id': comment.id, 'act': 'delete'}) }}" class="close1"></a>
-							{% endif %}
 						</li>
 					{% endfor %}
 				</ul>

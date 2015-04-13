@@ -4,6 +4,7 @@ namespace Demos\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Demos\BlogBundle\Entity\User;
 use Demos\BlogBundle\Entity\BlogPost;
 use Demos\BlogBundle\Entity\BlogCategory;
@@ -93,15 +94,32 @@ class BlogController extends Controller
         ); 
     }
 
-    public function commentAction($id, $act){
+    public function commentDeleteAction($id){
+        $answer = array();
+        if($id){
+            $em = $this->getDoctrine()->getEntityManager();
+            $comment = $em->getRepository('DemosBlogBundle:BlogComment')->find($id);
+            $em->remove($comment);
+            $em->flush();
+            $answer['id'] = $id;
+            $answer['report'] = true;
+        }else{
+            $answer['id'] = false;
+            $answer['report'] = false;
+        }
 
-        echo 'commentID:'.$id.'<br>';
-        echo 'action:'.$act.'<br>';
+        $response = new JsonResponse();
+        $response->setData(array(
+            'answer' => $answer
+        ));
 
-        $response = new Response();
-        $response->headers->set('Content-Type', 'text/html');
-        $response->setCharset('UTF-8');
-        $response->setStatusCode(Response::HTTP_OK);
+        // $response = new Response(
+        //     'Content',
+        //     Response::HTTP_OK,
+        //     array('content-type' => 'text/html')
+        // );
+        // $response->setContent('Hello World');
+        // $response->setCharset('UTF-8');
 
         return $response;
     }

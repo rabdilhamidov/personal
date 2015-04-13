@@ -1,6 +1,6 @@
 {% form_theme comment_form 'DemosBlogBundle:Form:form_theme.html.twig' %}
 
-<form action="" method="post" {{ form_enctype(comment_form) }} class="comment" id="comment" novalidate>
+<form action="#post-comments" method="post" {{ form_enctype(comment_form) }} class="comment" id="comment" novalidate>
     {% if comment_form.vars.submitted %}
     <div class="comment-form-report-block {{ isFbkFormValid ? 'success' : 'error' }}">
         <a href="#" class="close1"></a>

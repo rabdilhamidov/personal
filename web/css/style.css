@@ -238,6 +238,11 @@ a {
     width: 16px;
     height: 16px;
     display: inline-block; }
+  a.edit {
+    background: url("../images/edit.svg") center no-repeat;
+    width: 16px;
+    height: 16px;
+    display: inline-block; }
   a.back {
     display: inline-block;
     width: 100px;
@@ -245,7 +250,7 @@ a {
     background: url("../images/back_arrow.svg") -8px center no-repeat;
     font-size: 18px;
     line-height: 20px;
-    padding-top: 9px;
+    padding-top: 10px;
     font-family: 'rl';
     color: #f5f5f5;
     text-transform: uppercase;
@@ -281,7 +286,7 @@ a.button, button, input[type="submit"], input[type="button"], input[type="reset"
   font-family: "rr";
   padding: 0;
   cursor: pointer;
-  padding: 0 20px 5px;
+  padding: 0 20px 3px;
   background-color: #bbb;
   color: #343435; }
   a.button:hover, button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover {
@@ -842,6 +847,12 @@ nav.left-menu ul li {
  * Blog Content
  * ----------------------------------------------------------------------------
  */
+.date {
+  font-family: 'rr';
+  font-size: 14px;
+  line-height: 20px;
+  color: #a5a5a5; }
+
 article {
   margin-bottom: 40px; }
   article .post-img {
@@ -859,17 +870,78 @@ article {
     color: #6e9b32; }
   article .post-head h3 {
     margin-bottom: 0; }
-  article .post-head .date {
-    font-family: 'rr';
-    font-size: 14px;
-    line-height: 20px;
-    color: #a5a5a5; }
   article .post-body {
     margin-top: 10px; }
     article .post-body a {
       text-decoration: underline; }
   article .post-footer {
     margin-top: 20px; }
+  article .post-comments {
+    margin-top: 40px;
+    border-top: 3px solid #2b4117;
+    border-bottom: 3px solid #2b4117;
+    padding-bottom: 20px; }
+    article .post-comments h4 {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'rb';
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 20px;
+      color: #6e9b32; }
+    article .post-comments ul {
+      margin-top: 10px; }
+      article .post-comments ul li.post-comment {
+        margin-top: 10px;
+        border-top: 1px solid #afcb78; }
+        article .post-comments ul li.post-comment .post-comment-head {
+          position: relative;
+          margin-top: 12px; }
+          article .post-comments ul li.post-comment .post-comment-head h5 {
+            font-family: 'rb';
+            font-weight: normal;
+            line-height: 12px;
+            font-size: 12px; }
+          article .post-comments ul li.post-comment .post-comment-head .date {
+            line-height: 12px;
+            font-size: 12px; }
+          article .post-comments ul li.post-comment .post-comment-head .post-comment-controls {
+            position: absolute;
+            right: 0;
+            top: 0; }
+            article .post-comments ul li.post-comment .post-comment-head .post-comment-controls .disabled {
+              cursor: default;
+              opacity: 0.5; }
+        article .post-comments ul li.post-comment .post-comment-body {
+          margin-top: 5px;
+          font-size: 12px; }
+  article .post-comment {
+    position: relative;
+    margin-top: 20px; }
+    article .post-comment form.comment textarea, article .post-comment form.comment button {
+      width: 100%;
+      display: block; }
+    article .post-comment form.comment button {
+      margin-top: 10px; }
+    article .post-comment .comment-edit-progress {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.5); }
+      article .post-comment .comment-edit-progress .spinner {
+        display: block;
+        width: 24px;
+        height: 24px;
+        background: url('../images/spinner.gif');
+        position: absolute;
+        top: 50%;
+        margin-top: -12px;
+        left: 50%;
+        margin-left: -12px; }
 
 .blog.section aside h2.blog-caption, .blog.detail aside h2.blog-caption {
   margin-left: -4px; }

@@ -1,0 +1,6 @@
+ajax_comment_delete:
+    pattern:     /delete/{id}
+    defaults: { _controller: DemosBlogBundle:Blog:commentDelete, id: 0 }
+    # requirements:
+    #     _method: GET
+        # _format: json

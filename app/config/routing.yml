@@ -12,6 +12,14 @@ demos_blog:
     requirements:
         _locale:  %available_langs%
 
+demos_blog_ajax:
+    resource: "@DemosBlogBundle/Resources/config/ajax.yml"
+    prefix:   /ajax
+    options:
+        expose: true
+
+
+
 login_check:
     pattern: /login_check 
 
@@ -61,3 +69,7 @@ sonata_user_change_password:
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
+
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"    
