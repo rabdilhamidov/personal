@@ -62,7 +62,6 @@ class BlogController extends Controller
                         )
                     );
 
-
             $request = $this->container->get('request');
             $comment_form_view = false;
             if ($this->get('security.context')->isGranted('ROLE_USER')){
@@ -107,6 +106,28 @@ class BlogController extends Controller
             $answer['id'] = false;
             $answer['report'] = false;
         }
+
+        $response = new JsonResponse();
+        $response->setData(array(
+            'answer' => $answer
+        ));
+
+        // $response = new Response(
+        //     'Content',
+        //     Response::HTTP_OK,
+        //     array('content-type' => 'text/html')
+        // );
+        // $response->setContent('Hello World');
+        // $response->setCharset('UTF-8');
+
+        return $response;
+    }
+
+    public function commentEditAction($id){
+        $answer = array();
+        $answer['id'] = $id;
+        $answer['report'] = true;
+
 
         $response = new JsonResponse();
         $response->setData(array(
