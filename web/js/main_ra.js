@@ -142,7 +142,9 @@ $(function () {
     });
   }).on('click', '.post-comment-controls .edit', function (event) {
     event.preventDefault();
-    console.log('.post-comment-controls .edit click');  //...
+    console.log('.post-comment-controls .edit click');
+    var this_comment = $(this).parent().parent().parent('.post-comment');  // $(this_comment).append('<div class = "comment-edit-progress"><span class="spinner"></span></div>');
+                                                                           //...
   });
   ;
   $(window).resize(function () {

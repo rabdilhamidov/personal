@@ -93,6 +93,10 @@ class BlogController extends Controller
         ); 
     }
 
+    public function commentAction($id, $action){
+        
+    }
+
     public function commentDeleteAction($id){
         $answer = array();
         if($id){
@@ -111,15 +115,6 @@ class BlogController extends Controller
         $response->setData(array(
             'answer' => $answer
         ));
-
-        // $response = new Response(
-        //     'Content',
-        //     Response::HTTP_OK,
-        //     array('content-type' => 'text/html')
-        // );
-        // $response->setContent('Hello World');
-        // $response->setCharset('UTF-8');
-
         return $response;
     }
 
