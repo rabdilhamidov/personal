@@ -43,3 +43,6 @@
 /app/cache
 /app/config/parameters.yml
 /app/config/parameters.yml.dist
+composer.lock
+check.php
+/app/SymfonyRequirements.php
