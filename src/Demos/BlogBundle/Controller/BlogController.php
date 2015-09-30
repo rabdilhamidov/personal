@@ -73,7 +73,7 @@ class BlogController extends Controller
                     if ($comment_form->isValid()) {
                         $comment->setPost($posts[0]->getId());
                         $comment->setUser($this->getUser());
-                        $em = $this->getDoctrine()->getEntityManager();
+                        $em = $this->getDoctrine()->getManager();
                         $em->persist($comment);
                         $em->flush();
                         return $this->redirect($request->getRequestUri());
@@ -100,7 +100,7 @@ class BlogController extends Controller
     public function commentDeleteAction($id){
         $answer = array();
         if($id){
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $comment = $em->getRepository('DemosBlogBundle:BlogComment')->find($id);
             $em->remove($comment);
             $em->flush();

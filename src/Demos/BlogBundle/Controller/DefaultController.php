@@ -165,7 +165,7 @@ class DefaultController extends Controller
 	    $user->setEmail('rus-abd@ukr.net');
 	    $user->setBirthdate(new \DateTime("1971-11-23"));
 
-	    $em = $this->getDoctrine()->getEntityManager();
+	    $em = $this->getDoctrine()->getManager();
 	    $em->persist($user);
 	    $em->flush();
 
@@ -180,7 +180,7 @@ class DefaultController extends Controller
 	//     $post->setCreatedDate(new \DateTime("now"));
 	//     $post->setUpdatedDate(new \DateTime('now'));
 
-	//     $em = $this->getDoctrine()->getEntityManager();
+	//     $em = $this->getDoctrine()->getManager();
 	//     $em->persist($post);
 	//     $em->flush();
 
@@ -208,7 +208,7 @@ class DefaultController extends Controller
 	// 	$potato->setTitle('Картофель');
 	// 	$potato->setParent($vegetables);
 
-	// 	$em = $this->getDoctrine()->getEntityManager();
+	// 	$em = $this->getDoctrine()->getManager();
 	// 	$em->persist($food);
 	// 	$em->persist($fruits);
 	// 	$em->persist($vegetables);
