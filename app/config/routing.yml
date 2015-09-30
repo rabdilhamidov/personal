@@ -10,7 +10,7 @@ demos_blog:
     resource: "@DemosBlogBundle/Resources/config/routing.yml"
     prefix:   /{_locale}
     requirements:
-        _locale:  %available_langs%
+        _locale:  |ru|en
 
 demos_blog_ajax:
     resource: "@DemosBlogBundle/Resources/config/ajax.yml"
