@@ -157,12 +157,6 @@ $(function () {
       center_slide();
     }
   });
-  $(window).scroll(function () {
-    // рассчет полноэкранного изображения
-    if ($('.fullscreen').is(':visible')) {
-      fullscreenImg($('.fullscreen .img-block img'));
-    }
-  });
   $(window).load(function () {
     // слайдов главного слайдера
     if ($('.main-slider').length) {
