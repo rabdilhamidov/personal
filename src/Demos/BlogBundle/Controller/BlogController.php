@@ -25,6 +25,7 @@ class BlogController extends Controller
         $arParams['title'] = 'Блог';
         $arParams['slug1'] = $slug1;
         $comment_form_view = false;
+        $isCommentFormValid = false;
         $comments = false;
 
     	$repoPost = $this->getDoctrine()->getRepository('DemosBlogBundle:BlogPost');
@@ -67,12 +68,13 @@ class BlogController extends Controller
                     );
 
             $request = $this->container->get('request');
-            $comment_form_view = false;
+
             if ($this->get('security.context')->isGranted('ROLE_USER')){
                 $comment = new BlogComment();
                 $comment_form = $this->createForm(new CommentType(), $comment);
                 if ($request->getMethod() == 'POST') {
                     $comment_form->handleRequest($request);
+                    $isCommentFormValid = $comment_form->isValid();
 
                     if ($comment_form->isValid()) {
                         $comment->setPost($posts[0]->getId());
@@ -93,7 +95,7 @@ class BlogController extends Controller
                 'params' => $arParams,
                 'comments'  => $comments,
                 'comment_form'=> $comment_form_view,
-                'isFbkFormValid'    => $comment_form->isValid()
+                'isFbkFormValid'    => $isCommentFormValid
             )
         ); 
     }
