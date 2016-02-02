@@ -1065,6 +1065,15 @@ article {
       .form-report-block .form-message ul li {
         margin-top: 0; }
 
+.comment-form-report-block.error .sign {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background: url("../images/attention.svg") center no-repeat; }
+.comment-form-report-block.error .form-message {
+  color: #e86b17;
+  margin-bottom: 10px; }
+
 /**
  * Footer
  * ----------------------------------------------------------------------------

@@ -92,7 +92,8 @@ class BlogController extends Controller
                 'posts' => $posts, 
                 'params' => $arParams,
                 'comments'  => $comments,
-                'comment_form'=> $comment_form_view
+                'comment_form'=> $comment_form_view,
+                'isFbkFormValid'    => $comment_form->isValid()
             )
         ); 
     }
