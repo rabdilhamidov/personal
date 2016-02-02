@@ -97,7 +97,7 @@ $(function () {
       if (status == 'error') {
         console.log('Error: ' + xhr.status + ' ' + xhr.statusText);
       } else {
-        console.log('All fun!\r\t' + response);
+        console.log('All fun!\r\n' + response);
         fullscreenImg($('.fullscreen .img-block img'));
         $('.fullscreen .help').show();
         $('.fullscreen .help').fadeOut(2000);
@@ -157,6 +157,12 @@ $(function () {
       center_slide();
     }
   });
+  $(window).scroll(function () {
+    // рассчет полноэкранного изображения
+    if ($('.fullscreen').is(':visible')) {
+      fullscreenImg($('.fullscreen .img-block img'));
+    }
+  });
   $(window).load(function () {
     // слайдов главного слайдера
     if ($('.main-slider').length) {
@@ -172,7 +178,7 @@ function fullscreenImg(img_el, mode) {
   var wh = $(window).height();
   var imw = $(img_el).width();
   var imh = $(img_el).height();
-  // console.log('imw = '+imw+'; imh = '+imh);
+  console.log('imw = ' + imw + '; imh = ' + imh);
   var imk = imw / imh;
   var borderw = 8;
   // толщина контура	
