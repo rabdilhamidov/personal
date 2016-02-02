@@ -2,6 +2,7 @@
 
 namespace Demos\BlogBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 // use Demos\BlogBundle\Entity\User;
@@ -24,6 +25,9 @@ class PortfolioController extends Controller
         );
     }
 
+    /**
+     * @Route("/portfolio/{slug1}/{slug2}/{page}", defaults={"slug1"="web", "slug2"="all", "page"="1"}, requirements={"page"="\d+"}, name="demos_blog_section")
+     */
     public function sectionAction($slug1, $slug2, $page)
     {
         $default_locale =  $this->container->getParameter('locale');
@@ -86,6 +90,5 @@ class PortfolioController extends Controller
             )
         );
     }
-
 }
 

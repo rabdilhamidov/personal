@@ -2,6 +2,7 @@
 
 namespace Demos\BlogBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Demos\BlogBundle\Entity\User;
@@ -16,6 +17,9 @@ use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
 
 class DefaultController extends Controller
 {
+	/**
+	 * @Route("/", name="demos_blog_homepage")
+	 */
     public function indexAction()
     {
 
@@ -106,7 +110,6 @@ class DefaultController extends Controller
 		);
     }
 
-
     public function loginAction($request){
     	$session = $request->getSession();
     	// получить ошибки логина, если таковые имеются
@@ -124,15 +127,20 @@ class DefaultController extends Controller
 		);
     }
 
+
+    /**
+     * @Route("/about_me", name="demos_blog_about")
+     */
     public function aboutmeAction(){
 	    return $this->render('DemosBlogBundle:Default:aboutme.html.twig');
     }
 
+    /**
+     * @Route("/contacts", name="demos_blog_contacts")
+     */
     public function contactsAction(){
 	    return $this->render('DemosBlogBundle:Default:contacts.html.twig');
     }
-
-
 
 
     private function sendMail($mailbody, $sendFrom = 'admin@mail.ra', $sentTo='rus-abd@ukr.net')
@@ -273,6 +281,9 @@ class DefaultController extends Controller
 		return $this->render('DemosBlogBundle:Default:posts.html.twig', array('posts' => $posts));
 	}
 
+	/**
+	 * @Route("/testmail", name="demos_blog_mail")
+	 */
 	public function testMailAction()
 	{
 		// получаем 'mailer' (обязателен для инициализации Swift Mailer)

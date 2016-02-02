@@ -1,74 +1,58 @@
 
-demos_blog_homepage:
-    path:     /
-    defaults: { _controller: DemosBlogBundle:Default:index, _locale: %locale% }
-
-# demos_blog_portfolio:
-#     path:     /portfolio/{slug}/{page}
-#     defaults: { _controller: DemosBlogBundle:Portfolio:index, page: 1 }
-#     requirements:
-#             page:  \d+
-
-# demos_blog_portfolio:
-#     path:     /portfolio
-#     defaults: { _controller: DemosBlogBundle:Portfolio:index }
-#     requirements:
-#             page:  \d+
-
-demos_blog_section:
-    path:     /portfolio/{slug1}/{slug2}/{page}
-    defaults: { _controller: DemosBlogBundle:Portfolio:section, slug1: 'web', slug2: 'all', page: 1 }
+personal:
+    resource: "@DemosBlogBundle/Controller/"
+    type:   annotation
+    prefix:   /{_locale}
     requirements:
-            page:  \d+
-
-demos_blog_blog:
-    path: /blog/{slug1}/{page}
-    defaults: { _controller: DemosBlogBundle:Blog:index, slug1: 'all', page: 1 }
-
-demos_blog_comment:
-    path: /comment/{id}/{act}
-    defaults: { _controller: DemosBlogBundle:Blog:comment }
+        _locale:  |ru|en
 
 
+# Перенесено в кортроллеры
 
-demos_blog_about:
-    path:     /about_me
-    defaults: { _controller: DemosBlogBundle:Default:aboutme }
+# demos_blog_homepage:
+#     path:     /
+#     defaults: { _controller: DemosBlogBundle:Default:index, _locale: %locale% }
 
-demos_blog_contacts:
-    path:     /contacts
-    defaults: { _controller: DemosBlogBundle:Default:contacts }
+# demos_blog_section:
+#     path:     /portfolio/{slug1}/{slug2}/{page}
+#     defaults: { _controller: DemosBlogBundle:Portfolio:section, slug1: 'web', slug2: 'all', page: 1 }
+#     requirements:
+#             page:  \d+
 
-demos_blog_login:
-    path: /login
-    defaults: { _controller: DemosBlogBundle:Security:login }
+# demos_blog_blog:
+#     path: /blog/{slug1}/{page}
+#     defaults: { _controller: DemosBlogBundle:Blog:index, slug1: 'all', page: 1 }
 
-demos_blog_logout:
-    path: /logout/{backurl}
-    defaults: { _controller: DemosBlogBundle:Security:logout }
+# demos_blog_about:
+#     path:     /about_me
+#     defaults: { _controller: DemosBlogBundle:Default:aboutme }
 
-demos_blog_logout_target:
-    path: /{backurl}
-    defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
+# demos_blog_contacts:
+#     path:     /contacts
+#     defaults: { _controller: DemosBlogBundle:Default:contacts }
+
+# demos_blog_login:
+#     path: /login
+#     defaults: { _controller: DemosBlogBundle:Security:login }
+
+# demos_blog_comment:
+#     path: /comment/{id}/{act}
+#     defaults: { _controller: DemosBlogBundle:Blog:comment }
+
+# demos_blog_logout:
+#     path: /logout/{backurl}
+#     defaults: { _controller: DemosBlogBundle:Security:logout }
+
+# demos_blog_mail:
+#     path:     /testmail/
+#     defaults: { _controller: DemosBlogBundle:Default:testMail }
+
+# --------------
 
 
+# demos_blog_logout_target:
+#     path: /{backurl}
+#     defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
 
 
-
-
-# demos_blog_create_post:
-#     path:     /createpost/
-#     defaults: { _controller: DemosBlogBundle:Default:createPost }
-
-# demos_blog_show_post:
-#     path:     /post/{id}
-#     defaults: { _controller: DemosBlogBundle:Default:showPost }
-
-# demos_blog_show_posts:
-#     path:     /posts/
-#     defaults: { _controller: DemosBlogBundle:Default:showPosts }
-
-demos_blog_mail:
-    path:     /testmail/
-    defaults: { _controller: DemosBlogBundle:Default:testMail }
 

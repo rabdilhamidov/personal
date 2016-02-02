@@ -8,17 +8,13 @@ application_sonata_admin:
 
 demos_blog:
     resource: "@DemosBlogBundle/Resources/config/routing.yml"
-    prefix:   /{_locale}
-    requirements:
-        _locale:  |ru|en
+    prefix:   /
 
 demos_blog_ajax:
     resource: "@DemosBlogBundle/Resources/config/ajax.yml"
     prefix:   /ajax
     options:
         expose: true
-
-
 
 login_check:
     pattern: /login_check 

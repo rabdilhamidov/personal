@@ -2,6 +2,7 @@
 
 namespace Demos\BlogBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -14,6 +15,9 @@ use Ra\PaginationBundle\Pagination\CPagination;
 
 class BlogController extends Controller
 {
+    /**
+     * @Route("/blog/{slug1}/{page}", defaults={"slug1"="all", "page"="1"}, name="demos_blog_blog")
+     */
     public function indexAction($slug1, $page)
     {
         $posts = array();
@@ -93,6 +97,9 @@ class BlogController extends Controller
         ); 
     }
 
+    /**
+     * @Route("/comment/{id}/{act}", name="demos_blog_comment")
+     */
     public function commentAction($id, $action){
         
     }
