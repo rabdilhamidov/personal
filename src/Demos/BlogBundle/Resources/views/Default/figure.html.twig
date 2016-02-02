@@ -2,9 +2,9 @@
 	{% if post.image %}
 	<a class="imglink" href="{% path post.image, 'big' %}">
 		{% if post.image.height > post.image.width %}
-			{% media post.image, 'medium' with {'width': 'auto', 'style': 'width: 100%; height: auto'} %}
+			{% media post.image, 'big' with {'width': 'auto', 'style': 'width: 100%; height: auto'} %}
 		{% else %}
-			{% media post.image, 'medium' with {'width': 'auto'} %}
+			{% media post.image, 'big' with {'width': 'auto'} %}
 		{% endif %}
 	</a>
 	{% endif %}
