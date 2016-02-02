@@ -178,7 +178,6 @@ function fullscreenImg(img_el, mode) {
   var wh = $(window).height();
   var imw = $(img_el).width();
   var imh = $(img_el).height();
-  console.log('imw = ' + imw + '; imh = ' + imh);
   var imk = imw / imh;
   var borderw = 8;
   // толщина контура	
