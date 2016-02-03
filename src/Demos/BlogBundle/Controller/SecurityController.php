@@ -32,6 +32,7 @@ class SecurityController extends Controller
 
     /**
      * @Route("/logout/{backurl}", name="demos_blog_logout")
+     * 
      */
     public function logoutAction($backurl)
     {
