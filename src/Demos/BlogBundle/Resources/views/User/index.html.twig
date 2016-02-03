@@ -11,7 +11,7 @@
 			<h2>{{'Профиль пользователя'|trans }}</h2>
 			{# {{ user ? dump(user) : false }} #}
 
-			{% if user.enabled and not user.locked and not user.expired %}
+			{% if user and user.enabled and not user.locked and not user.expired %}
 				<ul class="user-props">
 					{% if user.firstname %}<li>{{'Имя'|trans }}: <span>{{user.firstname}}</span></li>{% endif %}
 					{% if user.lastname %}<li>{{'Фамилия'|trans }}: <span>{{user.lastname}}</span></li>{% endif %}

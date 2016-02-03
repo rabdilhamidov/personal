@@ -70,7 +70,13 @@
                             {% endif %}
                         </div>
                     </nav>
-                    <div class="my-avatar"></div>
+                    <div class="avatar">
+                        {% if app.user %}
+                            <a href="{{ path('profile_show') }}"><img src="{{asset('images/my-avatar.jpg')}}" alt=""></a>
+                        {% else %}
+                            <img src="{{ asset('images/my-avatar.jpg') }}" alt="">
+                        {% endif %}
+                    </div>
                 </div>
             </header><!-- .header-->
             
