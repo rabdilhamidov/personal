@@ -3,10 +3,11 @@
 namespace Demos\BlogBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Demos\BlogBundle\Entity\User;
-use Demos\BlogBundle\Form\UserType;
+use Application\Sonata\UserBundle\Entity\User;
+// use Demos\BlogBundle\Form\UserType;
 
 /**
  * User controller.
@@ -16,20 +17,18 @@ class UserController extends Controller
 {
 
     /**
-     * Lists all User entities.
-     *
+     * @Route("/profile", name="profile_show")
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        // $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('DemosBlogBundle:User')->findAll();
+        // $entities = $em->getRepository('ApplicationSonataUserBundle:User')->findAll();
 
-        $this_user = $this->getUser();
+        $user = $this->getUser();
 
         return $this->render('DemosBlogBundle:User:index.html.twig', array(
-            'entities' => $entities,
-            'this_user' => $this_user
+            'user' => $user
         ));
     }
     /**
