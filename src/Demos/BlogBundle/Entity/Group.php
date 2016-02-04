@@ -1,15 +1,15 @@
 <?php
 
-namespace Application\Sonata\UserBundle\Entity;
+namespace Demos\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Sonata\UserBundle\Entity\BaseUser as BaseUser;
+use Sonata\UserBundle\Entity\BaseGroup as BaseGroup;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user1")
+ * @ORM\Table(name="fos_group")
  */
-class User extends BaseUser
+class Group extends BaseGroup
 {
     /**
      * @ORM\Id
@@ -17,11 +17,6 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-    * @ORM\Column(name="sort", type="integer", nullable=true)
-    */
-    protected $sort;
 
     public function __construct()
     {

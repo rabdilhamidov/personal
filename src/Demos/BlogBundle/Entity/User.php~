@@ -1,13 +1,13 @@
 <?php
 
-namespace Application\Sonata\UserBundle\Entity;
+namespace Demos\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sonata\UserBundle\Entity\BaseUser as BaseUser;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user1")
+ * @ORM\Table(name="fos_user_user")
  */
 class User extends BaseUser
 {
@@ -22,6 +22,7 @@ class User extends BaseUser
     * @ORM\Column(name="sort", type="integer", nullable=true)
     */
     protected $sort;
+    
 
     public function __construct()
     {
@@ -37,5 +38,29 @@ class User extends BaseUser
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set sort
+     *
+     * @param integer $sort
+     *
+     * @return User
+     */
+    public function setSort($sort)
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    /**
+     * Get sort
+     *
+     * @return integer
+     */
+    public function getSort()
+    {
+        return $this->sort;
     }
 }
