@@ -62,7 +62,9 @@
                         </div>
                         <div class="login">
                             {% if app.user %}
-                                <span>{{ app.user.username }}</span> 
+                                <span>
+                                    <a href="{{ path('sonata_admin_dashboard') }}">{{ app.user.username }}</a>
+                                </span> 
                                 <a href="{{ url('demos_blog_logout', {'backurl': app.request.requestUri | url_encode}) }}">{% trans %}Выход{% endtrans %}</a>
                             {% else %}
                                 <a class="login" href="{{ path('demos_blog_login') }}">{% trans %}Вход{% endtrans %}</a>
