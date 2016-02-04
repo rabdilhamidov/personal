@@ -653,10 +653,6 @@ section.chapter {
     left: 50%;
     top: 50%;
     padding: 8px; }
-    .fullscreen .img-block img {
-      display: none; }
-      .fullscreen .img-block img.active {
-        display: block; }
   .fullscreen .help {
     width: 150px;
     background-color: #e86b17;
