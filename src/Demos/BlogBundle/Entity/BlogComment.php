@@ -19,7 +19,7 @@ class BlogComment {
 protected $id;
 
 /**
- * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+ * @ORM\ManyToOne(targetEntity="Demos\BlogBundle\Entity\User")
  * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
  */
 protected $user;
@@ -152,10 +152,10 @@ protected $post;
     /**
      * Set user
      *
-     * @param \Application\Sonata\UserBundle\Entity\User $user
+     * @param \Demos\BlogBundle\Entity\User $user
      * @return BlogComment
      */
-    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
+    public function setUser(\Demos\BlogBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -165,7 +165,7 @@ protected $post;
     /**
      * Get user
      *
-     * @return \Application\Sonata\UserBundle\Entity\User 
+     * @return \Demos\BlogBundle\Entity\User 
      */
     public function getUser()
     {

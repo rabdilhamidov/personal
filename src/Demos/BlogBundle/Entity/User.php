@@ -22,6 +22,12 @@ class User extends BaseUser
     * @ORM\Column(name="sort", type="integer", nullable=true)
     */
     protected $sort;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Demos\BlogBundle\Entity\Group")
+     * @ORM\JoinColumn(name="mygroups", referencedColumnName="id")
+     */
+    protected $mygroups;
     
 
     public function __construct()
@@ -62,5 +68,29 @@ class User extends BaseUser
     public function getSort()
     {
         return $this->sort;
+    }
+
+    /**
+     * Set mygroups
+     *
+     * @param \Demos\BlogBundle\Entity\Group $mygroups
+     *
+     * @return User
+     */
+    public function setMygroups(\Demos\BlogBundle\Entity\Group $mygroups = null)
+    {
+        $this->mygroups = $mygroups;
+
+        return $this;
+    }
+
+    /**
+     * Get mygroups
+     *
+     * @return \Demos\BlogBundle\Entity\Group
+     */
+    public function getMygroups()
+    {
+        return $this->mygroups;
     }
 }

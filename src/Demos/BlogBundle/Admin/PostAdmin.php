@@ -21,7 +21,7 @@ class PostAdmin extends Admin
             ->add('category', null, array('class' => 'Demos\BlogBundle\Entity\Category', 'property' => 'title', 'required' => true))
             ->add('image', 'sonata_type_model_list', array(), array())
             ->add('sort')
-            ->add('user', null, array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username', 'required' => true))
+            ->add('user', null, array('class' => 'Demos\BlogBundle\Entity\User', 'property' => 'username', 'required' => true))
             ->add('body')
             ->add('bodyEn')
             ->add('created_date', 'datetime', array('label' => 'Дата создания', 'required' => false))
@@ -35,7 +35,7 @@ class PostAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('title')
-            ->add('user', null, array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username'))
+            ->add('user', null, array('class' => 'Demos\BlogBundle\Entity\User', 'property' => 'username'))
             ->add('category', null, array('class' => 'Demos\BlogBundle\Entity\Category', 'property' => 'title'))
             ->add('slug')
             ->add('image')

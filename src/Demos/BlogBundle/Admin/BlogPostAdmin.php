@@ -21,7 +21,7 @@ class BlogPostAdmin extends Admin
             ->add('category', null, array('class' => 'Demos\BlogBundle\Entity\BlogCategory', 'property' => 'title', 'required' => true))
             ->add('image', 'sonata_type_model_list', array('required' => false, 'label' => 'Изображение'), array())
             ->add('sort', null, array('label' => 'Индекс сортировки'))
-            ->add('user', null, array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username', 'required' => true, 'label' => 'Автор'))
+            ->add('user', null, array('class' => 'Demos\BlogBundle\Entity\User', 'property' => 'username', 'required' => true, 'label' => 'Автор'))
             ->add('body', null, array('label' => 'Текст'))
             ->add('bodyEn', null, array('label' => 'Текст (EN)'))
 
@@ -35,7 +35,7 @@ class BlogPostAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('title')
-            ->add('user', null, array('class' => 'Application\Sonata\UserBundle\Entity\User', 'property' => 'username'))
+            ->add('user', null, array('class' => 'Demos\BlogBundle\Entity\User', 'property' => 'username'))
             ->add('category', null, array('class' => 'Demos\BlogBundle\Entity\BlogCategory', 'property' => 'title'))
             ->add('slug')
             ->add('image')

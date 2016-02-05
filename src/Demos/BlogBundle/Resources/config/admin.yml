@@ -33,7 +33,7 @@ services:
         tags:
             - name: sonata.admin
               manager_type: orm
-              group: "Blog"
+              group: "Блог"
               label: "Blog Posts"
               label_catalogue: "DemosBlogBundle"
         arguments:
@@ -48,7 +48,7 @@ services:
         tags:
             - name: sonata.admin
               manager_type: orm
-              group: "Blog"
+              group: "Блог"
               label: "Blog Categories"
               label_catalogue: "DemosBlogBundle"
         arguments:
@@ -59,33 +59,33 @@ services:
             - [ setTranslationDomain, [SonataAdminBundle]]
 
     # Пробовал кастомизировать юзеров :
-    # sonata.admin.user:
-    #     class: Demos\BlogBundle\Admin\UserAdmin
-    #     tags:
-    #         - name: sonata.admin
-    #           manager_type: orm
-    #           group: "Мои пользователи"
-    #           label: "Мои пользователи"
-    #           label_catalogue: "DemosBlogBundle"
-    #     arguments:
-    #         - ~
-    #         - Demos\BlogBundle\Entity\User
-    #         - ~
-    #     calls:
-    #         - [ setTranslationDomain, [SonataAdminBundle]]
+    sonata.admin.user:
+        class: Demos\BlogBundle\Admin\UserAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Мои пользователи"
+              label: "Мои пользователи"
+              label_catalogue: "DemosBlogBundle"
+        arguments:
+            - ~
+            - Demos\BlogBundle\Entity\User
+            - 
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]
 
     # Пробовал кастомизировать группы юзеров :
-    # sonata.admin.user_group:
-    #     class: Demos\BlogBundle\Admin\UserAdmin
-    #     tags:
-    #         - name: sonata.admin
-    #           manager_type: orm
-    #           group: "Мои пользователи"
-    #           label: "Мои группы"
-    #           label_catalogue: "DemosBlogBundle"
-    #     arguments:
-    #         - ~
-    #         - Demos\BlogBundle\Entity\Group
-    #         - ~
-    #     calls:
-    #         - [ setTranslationDomain, [SonataAdminBundle]]
+    sonata.admin.user_group:
+        class: Demos\BlogBundle\Admin\UserGroupAdmin
+        tags:
+            - name: sonata.admin
+              manager_type: orm
+              group: "Мои пользователи"
+              label: "Мои группы"
+              label_catalogue: "DemosBlogBundle"
+        arguments:
+            - ~
+            - Demos\BlogBundle\Entity\Group
+            - ~
+        calls:
+            - [ setTranslationDomain, [SonataAdminBundle]]

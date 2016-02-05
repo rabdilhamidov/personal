@@ -40,7 +40,7 @@ protected $slug;
 
 
 /**
- * @ORM\ManyToOne(targetEntity="Application\Sonata\UserBundle\Entity\User")
+ * @ORM\ManyToOne(targetEntity="Demos\BlogBundle\Entity\User")
  * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
  */
 protected $user;
@@ -218,7 +218,7 @@ protected $image;
      * @param \Demos\BlogBundle\Entity\User $author
      * @return BlogPost
      */
-    public function setAuthor(\Application\Sonata\UserBundle\Entity\User $author = null)
+    public function setAuthor(\Demos\BlogBundle\Entity\User $author = null)
     {
         $this->author = $author;
 
@@ -319,10 +319,10 @@ protected $image;
     /**
      * Set user
      *
-     * @param \Application\Sonata\UserBundle\Entity\User $user
+     * @param \Demos\BlogBundle\Entity\User $user
      * @return BlogPost
      */
-    public function setUser(\Application\Sonata\UserBundle\Entity\User $user = null)
+    public function setUser(\Demos\BlogBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -332,7 +332,7 @@ protected $image;
     /**
      * Get user
      *
-     * @return \Application\Sonata\UserBundle\Entity\User 
+     * @return \Demos\BlogBundle\Entity\User 
      */
     public function getUser()
     {

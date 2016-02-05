@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Application\Sonata\UserBundle\Entity\User;
+use Demos\BlogBundle\Entity\User;
 // use Demos\BlogBundle\Form\UserType;
 
 /**
