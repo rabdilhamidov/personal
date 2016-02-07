@@ -29,9 +29,7 @@
 					</li>
 				</ul>
 			{% else %}
-				<div class="err">
-					{{ render(controller("DemosBlogBundle:Default:login", { 'request': app.request }  )) }}
-				</div>
+				{{ render(controller("DemosBlogBundle:Default:login", { 'request': app.request }  )) }}
 			{% endif %}
 		</div>
 	</section>

@@ -12,15 +12,15 @@
 			{% endif %}
 
 			<form action="{{ path('login_check') }}" method="post">
-			    <label for="username">{% trans %}Username{% endtrans %}:</label>
+			    <label for="username">{{'Логин'|trans}}:</label>
 			    <input type="text" id="username" name="_username" value="{{ last_username }}" />
 
-			    <label for="password">{% trans %}Password{% endtrans %}:</label>
+			    <label for="password">{{'Пароль'|trans}}:</label>
 			    <input type="password" id="password" name="_password" />
 				<fieldset class="form-footer">
 				    <input type="checkbox" id="remember_me" name="_remember_me" checked />
-				    <label for="remember_me">{% trans %}Remember me{% endtrans %}</label><br>
-				    <input type="submit" name="login" value="{% trans %}Login{% endtrans %}" />
+				    <label for="remember_me">{{'Запомнить меня'|trans}}</label><br>
+				    <input type="submit" name="login" value="{{'Войти'|trans}}" />
 			    </fieldset>	    
 
 			    {#
@@ -30,8 +30,8 @@
 
 			</form>
 			<div class="buttons">
-				<a class="button" href="#">{% trans %}Register{% endtrans %}</a><br>
-				<a class="button" href="#">{% trans %}Password recovery{% endtrans %}</a>
+				<a class="button login-reg" href="#">{{'Регистрация'|trans}}</a><br>
+				<a class="button login-forgot" href="#">{{'Забыли пароль'|trans}}</a>
 			</div>
 		</div>
 	</div>

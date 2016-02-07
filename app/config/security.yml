@@ -42,7 +42,7 @@ security:
             context:             user
             form_login:
                 provider:       fos_userbundle
-                login_path:     /login
+                login_path:     /%locale%/login
                 use_forward:    false
                 check_path:     /login_check
                 failure_path:   null

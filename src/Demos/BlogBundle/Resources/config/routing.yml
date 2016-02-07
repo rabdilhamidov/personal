@@ -40,19 +40,20 @@ personal:
 #     path:     /testmail/
 #     defaults: { _controller: DemosBlogBundle:Default:testMail }
 
+
+# demos_blog_logout:
+#     path: /logout/{backurl}
+#     defaults: { _controller: DemosBlogBundle:Security:logout }
+
 # --------------
 
-demos_blog_login:
-    path: /login
-    defaults: { _controller: DemosBlogBundle:Security:login }
+# demos_blog_login:
+#     path: /login
+#     defaults: { _controller: DemosBlogBundle:Security:login }
 
-demos_blog_logout:
-    path: /logout/{backurl}
-    defaults: { _controller: DemosBlogBundle:Security:logout }
-
-demos_blog_logout_target:
-    path: /{backurl}
-    defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
+# demos_blog_logout_target:
+#     path: /{backurl}
+#     defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
 
 
 

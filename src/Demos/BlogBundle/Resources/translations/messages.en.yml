@@ -31,8 +31,6 @@
 "Комментарий слишком короткий": "Your comment is too short"
 "Спасибо! Ваш комментарий принят.": "Thanks for your comment"
 "Сохранить": "Save"
-
-
 "Образование": "Education"
 "trans_education": "higher (<a href=\"http://kpi.ua/en\" target=\"_blank\">NTUU \"KPI\"</a>, Faculty of Computer Science - FCS, 1989 - 1995)."
 "Общий стаж работы": "Total experience"
@@ -70,10 +68,16 @@
 "duties_pharmmedia_des": "I was creating the advertising mock-ups for print"
 "duties_itc": "Head designer of \"dFOTO\", \"What Hi-Fi\" and \"Computer Review\" magazines."
 "duties_freelance": "I was creating web sites on Wordpress CMS, Bitrix CMS, on php. Was making sites mock-ups, layout, programming back-end."
-
 "Профиль пользователя": "User Profile"
 "Имя": "Name"
 "Логин": "Login"
+"Пароль": "Password"
+
 "Фамилия": "Lastname"
 "Телефон": "Phone"
 "Роли": "Roles"
+"Группа": "Group"
+"Забыли пароль": "Password recovery"
+"Регистрация": "Register"
+"Войти": "Login"
+"Запомнить меня": "Remember me"

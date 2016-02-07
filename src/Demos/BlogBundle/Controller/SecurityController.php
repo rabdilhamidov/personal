@@ -7,7 +7,9 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends Controller
 {
-    
+    /**
+     * @Route("/login", name="demos_blog_login")
+     */
     public function loginAction()
     {
         $request = $this->getRequest();
@@ -27,8 +29,13 @@ class SecurityController extends Controller
         ));
     }
 
+    /**
+     * @Route("/logout/{backurl}", defaults={"backurl"=""}, name="demos_blog_logout")
+     * @Route("/{backurl}", defaults={"backurl"=""}, name="demos_blog_logout_target")
+     */
     public function logoutAction($backurl)
     {
+        // var_dump($app.request.get('_locale'));
         $backurl = urldecode ( $backurl );
         return $this->redirect($backurl);
     }
