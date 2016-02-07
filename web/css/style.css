@@ -1196,6 +1196,8 @@ footer {
   margin-top: 20px; }
   .profile ul.user-props li {
     margin-top: 10px; }
+.profile .buttons {
+  margin-top: 30px; }
 
 @media screen and (min-width: 0\0) {
   /* стили только для IE9 - IE10 */
