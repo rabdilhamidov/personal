@@ -28,6 +28,12 @@ class User extends BaseUser
      * @ORM\JoinColumn(name="mygroups", referencedColumnName="id")
      */
     protected $mygroups;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade="all")
+     * @ORM\JoinColumn(name="avatar", referencedColumnName="id")
+     */
+    protected $avatar;
     
 
     public function __construct()
@@ -70,26 +76,27 @@ class User extends BaseUser
         return $this->sort;
     }
 
-    // /**
-    //  * Set user
-    //  *
-    //  * @param \Demos\BlogBundle\Entity\Group $groups
-    //  * @return Post
-    //  */
-    // public function setGroups(\Demos\BlogBundle\Entity\Group $groups = null)
-    // {
-    //     $this->groups = $groups;
+    /**
+     * Set mygroups
+     *
+     * @param \Demos\BlogBundle\Entity\Group $mygroups
+     *
+     * @return User
+     */
+    public function setMygroups(\Demos\BlogBundle\Entity\Group $mygroups = null)
+    {
+        $this->mygroups = $mygroups;
 
-    //     return $this;
-    // }
+        return $this;
+    }
 
-    // /**
-    //  * Get user
-    //  *
-    //  * @return \Demos\BlogBundle\Entity\Group
-    //  */
-    // public function getGroups()
-    // {
-    //     return $this->groups;
-    // }
+    /**
+     * Get mygroups
+     *
+     * @return \Demos\BlogBundle\Entity\Group
+     */
+    public function getMygroups()
+    {
+        return $this->mygroups;
+    }
 }

@@ -1172,6 +1172,17 @@ footer {
   .chapter-footer .pager span.pre, .chapter-footer .pager span.next {
     background: url("../images/arrow-double-disable.svg") center no-repeat; }
 
+/**
+ * Profile
+ * ----------------------------------------------------------------------------
+ */
+.profile .user-avatar {
+  width: 25%; }
+.profile ul.user-props {
+  margin-top: 20px; }
+  .profile ul.user-props li {
+    margin-top: 10px; }
+
 @media screen and (min-width: 0\0) {
   /* стили только для IE9 - IE10 */
   .footer {

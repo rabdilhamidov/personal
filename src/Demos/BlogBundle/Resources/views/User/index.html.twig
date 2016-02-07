@@ -7,11 +7,16 @@
 {% block content %}
 
 	<section class="chapter">
-		<div class="content">
+		<div class="content profile">
 			<h2>{{'Профиль пользователя'|trans }}</h2>
 			{# {{ user ? dump(user) : false }} #}
 
 			{% if user and user.enabled and not user.locked and not user.expired %}
+				{% if user.avatar %}
+					<div class="user-avatar">
+						{% media user.avatar, 'preview' with {'width': 'auto', 'style': 'width: 100%; height: auto'} %}
+					</div>
+				{% endif %}
 				<ul class="user-props">
 					{% if user.firstname %}<li>{{'Имя'|trans }}: <span>{{user.firstname}}</span></li>{% endif %}
 					{% if user.lastname %}<li>{{'Фамилия'|trans }}: <span>{{user.lastname}}</span></li>{% endif %}
@@ -19,14 +24,14 @@
 					{% if user.email %}<li>E-mail: <span>{{user.email}}</span></li>{% endif %}
 					{% if user.phone %}<li>{{'Телефон'|trans }}: <span>{{user.phone}}</span></li>{% endif %}
 					<li>
-						{{'Роли'|trans }}:
-						<span>
-							{% for role in user.roles %}
-								{{ role }};&nbsp;
-							{% endfor %}
-						</span>
+						{{'Группа'|trans }}:
+						{{ user.mygroups }}
 					</li>
 				</ul>
+			{% else %}
+				<div class="err">
+					{{ render(controller("DemosBlogBundle:Default:login", { 'request': app.request }  )) }}
+				</div>
 			{% endif %}
 		</div>
 	</section>

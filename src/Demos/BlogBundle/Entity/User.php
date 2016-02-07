@@ -28,6 +28,12 @@ class User extends BaseUser
      * @ORM\JoinColumn(name="mygroups", referencedColumnName="id")
      */
     protected $mygroups;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade="all")
+     * @ORM\JoinColumn(name="avatar", referencedColumnName="id")
+     */
+    protected $avatar;
     
 
     public function __construct()
@@ -92,5 +98,29 @@ class User extends BaseUser
     public function getMygroups()
     {
         return $this->mygroups;
+    }
+
+    /**
+     * Set avatar
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $avatar
+     *
+     * @return User
+     */
+    public function setAvatar(\Application\Sonata\MediaBundle\Entity\Media $avatar = null)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
     }
 }

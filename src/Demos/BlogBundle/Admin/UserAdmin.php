@@ -56,12 +56,18 @@ class UserAdmin extends BaseUserAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('avatar', null, array('template' => 'ApplicationSonataAdminBundle:CRUD:list_orm_many_to_one.html.twig', 'link_parameters' => array('context' => 'default')))
             ->addIdentifier('username')
             ->add('email')
             ->add('mygroups')
             ->add('enabled', null, array('editable' => true))
             ->add('locked', null, array('editable' => true))
-            ->add('createdAt')
+            ->add('createdAt', 'datetime', array('format' => "dd-MM-yyyy HH:mm:ss", 'template' => 'ApplicationSonataAdminBundle:CRUD:list_datetime.html.twig'))
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'delete' => array(),
+                )
+            ))
         ;
 
         if ($this->isGranted('ROLE_ALLOWED_TO_SWITCH')) {
@@ -93,6 +99,7 @@ class UserAdmin extends BaseUserAdmin
     {
         $showMapper
             ->with('General')
+                ->add('avatar', 'sonata_type_model_list', array(), array())
                 ->add('username')
                 ->add('email')
             ->end()
@@ -110,18 +117,18 @@ class UserAdmin extends BaseUserAdmin
                 ->add('timezone')
                 ->add('phone')
             ->end()
-            ->with('Social')
-                ->add('facebookUid')
-                ->add('facebookName')
-                ->add('twitterUid')
-                ->add('twitterName')
-                ->add('gplusUid')
-                ->add('gplusName')
-            ->end()
-            ->with('Security')
-                ->add('token')
-                ->add('twoStepVerificationCode')
-            ->end()
+            // ->with('Social')
+            //     ->add('facebookUid')
+            //     ->add('facebookName')
+            //     ->add('twitterUid')
+            //     ->add('twitterName')
+            //     ->add('gplusUid')
+            //     ->add('gplusName')
+            // ->end()
+            // ->with('Security')
+            //     ->add('token')
+            //     ->add('twoStepVerificationCode')
+            // ->end()
         ;
     }
 
@@ -132,6 +139,7 @@ class UserAdmin extends BaseUserAdmin
     {
         $formMapper
             ->with('General')
+                ->add('avatar', 'sonata_type_model_list', array(), array())
                 ->add('username')
                 ->add('email')
                 ->add('plainPassword', 'text', array(
@@ -165,29 +173,29 @@ class UserAdmin extends BaseUserAdmin
             // ->end()
         ;
 
-        if ($this->getSubject() && !$this->getSubject()->hasRole('ROLE_SUPER_ADMIN')) {
-            $formMapper
-                ->with('Management')
-                    ->add('realRoles', 'sonata_security_roles', array(
-                        'label'    => 'form.label_roles',
-                        'expanded' => true,
-                        'multiple' => true,
-                        'required' => false
-                    ))
-                    ->add('locked', null, array('required' => false))
-                    ->add('expired', null, array('required' => false))
-                    ->add('enabled', null, array('required' => false))
-                    ->add('credentialsExpired', null, array('required' => false))
-                ->end()
-            ;
-        }
+        // if ($this->getSubject() && !$this->getSubject()->hasRole('ROLE_SUPER_ADMIN')) {
+        //     $formMapper
+        //         ->with('Management')
+        //             ->add('realRoles', 'sonata_security_roles', array(
+        //                 'label'    => 'form.label_roles',
+        //                 'expanded' => true,
+        //                 'multiple' => true,
+        //                 'required' => false
+        //             ))
+        //             ->add('locked', null, array('required' => false))
+        //             ->add('expired', null, array('required' => false))
+        //             ->add('enabled', null, array('required' => false))
+        //             ->add('credentialsExpired', null, array('required' => false))
+        //         ->end()
+        //     ;
+        // }
 
-        $formMapper
-            ->with('Security')
-                ->add('token', null, array('required' => false))
-                ->add('twoStepVerificationCode', null, array('required' => false))
-            ->end()
-        ;
+        // $formMapper
+        //     ->with('Security')
+        //         ->add('token', null, array('required' => false))
+        //         ->add('twoStepVerificationCode', null, array('required' => false))
+        //     ->end()
+        // ;
     }
 
     /**
