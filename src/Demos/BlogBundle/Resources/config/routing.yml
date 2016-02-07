@@ -31,17 +31,10 @@ personal:
 #     path:     /contacts
 #     defaults: { _controller: DemosBlogBundle:Default:contacts }
 
-# demos_blog_login:
-#     path: /login
-#     defaults: { _controller: DemosBlogBundle:Security:login }
-
 # demos_blog_comment:
 #     path: /comment/{id}/{act}
 #     defaults: { _controller: DemosBlogBundle:Blog:comment }
 
-# demos_blog_logout:
-#     path: /logout/{backurl}
-#     defaults: { _controller: DemosBlogBundle:Security:logout }
 
 # demos_blog_mail:
 #     path:     /testmail/
@@ -49,6 +42,13 @@ personal:
 
 # --------------
 
+demos_blog_login:
+    path: /login
+    defaults: { _controller: DemosBlogBundle:Security:login }
+
+demos_blog_logout:
+    path: /logout/{backurl}
+    defaults: { _controller: DemosBlogBundle:Security:logout }
 
 demos_blog_logout_target:
     path: /{backurl}

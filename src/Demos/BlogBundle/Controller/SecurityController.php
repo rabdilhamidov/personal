@@ -7,10 +7,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 
 class SecurityController extends Controller
 {
-
-    /**
-     * @Route("/login", name="demos_blog_login")
-     */
+    
     public function loginAction()
     {
         $request = $this->getRequest();
@@ -30,10 +27,6 @@ class SecurityController extends Controller
         ));
     }
 
-    /**
-     * @Route("/logout/{backurl}", name="demos_blog_logout")
-     * 
-     */
     public function logoutAction($backurl)
     {
         $backurl = urldecode ( $backurl );
