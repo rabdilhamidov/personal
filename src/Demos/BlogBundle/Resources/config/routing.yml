@@ -51,9 +51,9 @@ personal:
 #     path: /login
 #     defaults: { _controller: DemosBlogBundle:Security:login }
 
-# demos_blog_logout_target:
-#     path: /{backurl}
-#     defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
+demos_blog_logout_target:
+    path: /{backurl}
+    defaults: { _controller: DemosBlogBundle:Security:logout, backurl: '' }
 
 
 
