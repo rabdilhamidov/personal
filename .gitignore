@@ -46,3 +46,20 @@
 composer.lock
 check.php
 /app/SymfonyRequirements.php
+
+# my subdomains
+/angurtour
+/awstats
+/cgi-bin
+/css
+/dollsworld
+/maxima
+/phm
+/parasol
+/piastry
+/promosw
+/resume
+/unigift
+/v2
+/v3
+
