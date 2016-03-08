@@ -57,6 +57,7 @@ check.php
 /public_html
 /stats
 /vendor
+composer
 
 # my subdomains
 /angurtour
