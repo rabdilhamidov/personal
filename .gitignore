@@ -47,6 +47,17 @@ composer.lock
 check.php
 /app/SymfonyRequirements.php
 
+# rusadesign.com/
+/.htpasswd
+/awstats
+/bin
+/logs
+/private_html
+/public_ftp
+/public_html
+/stats
+/vendor
+
 # my subdomains
 /angurtour
 /awstats
