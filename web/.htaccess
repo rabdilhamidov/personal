@@ -54,3 +54,8 @@ DirectoryIndex app.php
         # RedirectTemp cannot be used instead
     </IfModule>
 </IfModule>
+
+RemoveHandler .php # phpvs v55
+AddType php55cgi .php # phpvs v55
+
+AddType image/svg+xml svg svgz
