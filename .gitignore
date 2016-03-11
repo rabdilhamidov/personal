@@ -64,4 +64,5 @@ composer
 /web/v3
 /vendor---
 /web/pi.php
+/web/.htaccess
 
