@@ -60,18 +60,8 @@ check.php
 composer
 
 # my subdomains
-/angurtour
-/awstats
-/cgi-bin
-/css
-/dollsworld
-/maxima
-/phm
-/parasol
-/piastry
-/promosw
-/resume
-/unigift
-/v2
-/v3
+/web/v2
+/web/v3
+/vendor---
+/web/pi.php
 
