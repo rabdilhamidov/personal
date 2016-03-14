@@ -597,6 +597,18 @@ section.chapter {
       section.chapter figure figcaption a {
         color: #f5f5f5;
         text-decoration: underline; }
+    section.chapter figure .admin-edit-link {
+      display: block;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background-color: rgba(140, 180, 75, 0.5);
+      color: white;
+      width: 50px;
+      text-decoration: underline;
+      text-align: center;
+      padding: 5px 0 5px;
+      font-style: italic; }
   section.chapter .controls a {
     opacity: 0.3;
     width: 40px;

@@ -23,4 +23,8 @@
 			{% if body %}<p>{{ body|raw }}</p>{% endif %}
 		</figcaption>
 	{% endif %}
+
+	{% if app.user and "ROLE_ADMIN" in app.user.roles %}
+		<a href="{{ url('admin_demos_blog_post_edit', {'id': post.id}) }}" class="admin-edit-link">Edit</a>
+	{% endif %}
 </figure>
