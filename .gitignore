@@ -60,10 +60,15 @@ check.php
 composer
 
 # my subdomains
+/web/angurtour
+/web/dollsworld
+/web/maxima
+/web/parasol
+/web/phm
+/web/piastry
+/web/promosw
+/web/unigift
 /web/v2
 /web/v3
-/vendor---
 /web/pi.php
-/web/.htaccess
-
 /web/.htaccess
