@@ -50,6 +50,7 @@ check.php
 # rusadesign.com/
 /.htpasswd
 /.gitignore
+.gitignore
 /awstats
 /robots.txt
 /bin
@@ -78,3 +79,4 @@ web/.htaccess
 /web/imedical
 /web/projects461674_map
 /web/skolkovo
+/web/dasha
