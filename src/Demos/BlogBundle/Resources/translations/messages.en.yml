@@ -34,8 +34,8 @@
 "Образование": "Education"
 "trans_education": "higher (<a href=\"http://kpi.ua/en\" target=\"_blank\">NTUU \"KPI\"</a>, Faculty of Computer Science - FCS, 1989 - 1995)."
 "Общий стаж работы": "Total experience"
-"в области WEB-программирования 7 лет.": "7 year as web developer"
-"в области дизайна и верстки более 10 лет.": "10 years as designer in polygraphy"
+"в области WEB-программирования более 7 лет.": "more then 7 year as web developer"
+"в области дизайна и верстки более 10 лет.": "more then 10 years as designer in polygraphy"
 "Профессиональные навыки": "Skills"
 "WEB-программирование": "Web development"
 "Дизайн, верстка, программирование и поддержка сайтов на: 1C Bitrix, WordPress, собственном коде (php, MYSQL, jquery), флэш (AS3)": "Design, html mark-up, programming and support web sites on 1C Bitrix, Wordpress, my own cms (php, MYSQL, jquery), flash (AS3)"
@@ -72,6 +72,7 @@
 "Имя": "Name"
 "Логин": "Login"
 "Пароль": "Password"
+"Фриланс": "Freelance"
 
 "Фамилия": "Lastname"
 "Телефон": "Phone"
