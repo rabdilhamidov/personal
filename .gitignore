@@ -47,6 +47,15 @@ composer.lock
 check.php
 /app/SymfonyRequirements.php
 
+# rusahome.local/
+/localhost
+/node_modules
+/smf2.lo
+.htaccess
+/composer.json
+rusabd.sublime-project
+rusabd.sublime-workspace
+
 # rusadesign.com/
 /.htpasswd
 /.gitignore
