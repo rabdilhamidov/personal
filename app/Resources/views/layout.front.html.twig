@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang={{app.request.locale ? app.request.locale : app.request.defaultLocale}}>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <!--[if lte IE 9]>
@@ -31,7 +31,7 @@
     <body {% block bodyclass %}class="main"{% endblock %}>
 
         {# {{ dump(app.request.requestUri) }} #}
-        {# {{ dump(app.request) }} #}
+        {# {{ dump(app.request.locale) }} #}
         {# {{ dump(app.user.username) }} #}
         
         <div class="wrapper">
@@ -48,7 +48,7 @@
                             <ul class="lang-menu">
                               <li>
                                   <a href="{{ path(app.request.get('_route'), 
-                                            app.request.get('_route_params')|merge({'_locale': 'ru'})) }}" class="ru">RU</a>
+                                            app.request.get('_route_params')|merge({'_locale': 'ru'})) }}" class="ru">RU</a> /
                               </li>
                               <li>
                                   <a href="{{ path(app.request.get('_route'), 
